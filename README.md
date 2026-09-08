@@ -1,4 +1,4 @@
-# WebsiteRevamp
+# Devlogix Website Revamp
 
 This repository contains the frontend for our website revamp.
 
