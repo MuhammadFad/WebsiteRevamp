@@ -1,2 +1,12 @@
 # WebsiteRevamp
-A codebase containing the frontend for the revamped website of the company.
+
+This repository contains the frontend for our website revamp.
+
+## Tech Stack
+
+- Next.js
+- TypeScript
+
+## Team
+
+We are Squad Orion.
