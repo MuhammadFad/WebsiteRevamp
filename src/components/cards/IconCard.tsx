@@ -27,15 +27,15 @@ export default function IconCard({
     return (
       <div className={`flex items-start gap-4 ${className}`}>
         {icon ? (
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[#16A97F] [&>svg]:h-5 [&>svg]:w-5">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-teal/10 text-brand-teal [&>svg]:h-5 [&>svg]:w-5">
             {icon}
           </span>
         ) : null}
 
         <div className="pt-1">
-          <h3 className="text-sm font-semibold text-[#0B1A2B] sm:text-base">{title}</h3>
+          <h3 className="text-sm font-bold text-slate-900 sm:text-base">{title}</h3>
           {description ? (
-            <p className="mt-1.5 text-xs leading-relaxed text-[#5B6B7C] sm:text-sm">
+            <p className="mt-1.5 text-xs leading-relaxed text-slate-500 sm:text-sm">
               {description}
             </p>
           ) : null}
@@ -46,38 +46,31 @@ export default function IconCard({
 
   return (
     <div
-      className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-[#A8E7D3] hover:shadow-[0_18px_40px_-20px_rgba(11,26,43,0.35)] sm:p-6 ${className}`}
+      className={`group relative flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-5 transition duration-300 hover:border-brand-teal/30 hover:shadow-[0_18px_40px_-20px_rgba(11,18,33,0.35)] sm:p-6 ${className}`}
     >
       {active ? (
         <span
           aria-hidden
-          className="absolute left-0 top-6 bottom-6 w-0.75 rounded-r-full bg-[#16A97F]"
+          className="absolute left-0 top-6 bottom-6 w-[3px] rounded-r-full bg-brand-teal"
         />
       ) : null}
 
       {icon ? (
-        <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#E6F6F0] text-[#16A97F] sm:mb-5 sm:h-11 sm:w-11 [&>svg]:h-5 [&>svg]:w-5">
+        <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-brand-teal/10 text-brand-teal sm:mb-5 sm:h-11 sm:w-11 [&>svg]:h-5 [&>svg]:w-5">
           {icon}
         </span>
       ) : null}
 
-      <h3 className="text-base font-semibold leading-snug text-[#0B1A2B] sm:text-lg">
-        {title}
-      </h3>
+      <h3 className="text-lg font-bold leading-snug text-slate-900 md:text-xl">{title}</h3>
 
       {description ? (
-        <p
-          className={`mt-3 text-xs leading-relaxed sm:text-sm ${active ? "text-[#8695A4]" : "text-[#5B6B7C]"
-            }`}
-        >
-          {description}
-        </p>
+        <p className="mt-3 text-sm leading-relaxed text-slate-500">{description}</p>
       ) : null}
 
       {href && linkLabel ? (
         <Link
           href={href}
-          className="mt-auto inline-flex items-center gap-2 pt-6 text-xs font-semibold uppercase tracking-[0.12em] text-[#16A97F] transition-colors hover:text-[#0B6B51]"
+          className="mt-auto inline-flex items-center gap-2 pt-6 text-xs font-semibold uppercase tracking-[0.12em] text-brand-teal-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
         >
           {linkLabel}
           <ArrowRight
