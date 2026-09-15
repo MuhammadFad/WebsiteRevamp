@@ -17,5 +17,14 @@ export const navLinks: NavItem[] = [
       { label: "Logistics", href: "/industries#logistics" },
     ],
   },
+  {
+    label: "Insights",
+    href: "/blog",
+    dropdown: [
+      { label: "Blog", href: "/blog" },
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "Whitepapers / EBooks", href: "/whitepapers" },
+    ],
+  },
   { label: "Careers", href: "/careers" },
 ];
