@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ContactHero from "@/components/sections/ContactHero";
 import CareersForm from "@/components/sections/CareersForm";
+import ContactInfoPanel from "@/components/sections/ContactInfoPanel";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 
@@ -18,14 +19,17 @@ export default function CareersPage() {
       <ContactHero
         title="Let's turn ideas into impact."
         subtitle="Join a team building sovereign, high-performance platforms for the modern enterprise — and grow your career doing it."
-        panelKicker="Talent Acquisition"
         activeTab="careers"
       />
 
-      <section className="bg-brand-navy pb-20">
-        <Container>
-          <Reveal className="mx-auto max-w-2xl rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-[10px] sm:p-10">
+      {/* Dark hero above, light section below — see /contact for the same pairing. */}
+      <section className="bg-slate-50 py-16 md:py-20">
+        <Container className="grid grid-cols-1 gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-start lg:gap-10">
+          <Reveal className="rounded-xl border border-slate-200 bg-white p-6 sm:p-10">
             <CareersForm />
+          </Reveal>
+          <Reveal delay={0.1}>
+            <ContactInfoPanel kicker="Talent Acquisition" />
           </Reveal>
         </Container>
       </section>

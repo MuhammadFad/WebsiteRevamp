@@ -14,10 +14,13 @@
   --color-brand-teal-dark: #0a706b; /* header CTA hover; also safe teal text/links on light bg */
   --color-brand-teal-hover: #14b8a6; /* nav hover text, mega-menu highlights (dark bg only) */
   /* Token spec's Primary Teal (#0D938C) is only 3.77:1 against white — fails WCAG AA for
-     text/fills. brand-teal-fill is a ~10% darkened variant (4.55:1) used as the default
-     solid-button background so white button labels stay AA-compliant; visually indistinguishable
-     from the spec'd teal. See CLAUDE.md "Color contrast" requirement. */
-  --color-brand-teal-fill: #0c847e;
+     text/fills. brand-teal-fill is a darkened variant used as the default solid-button
+     background so white button labels stay AA-compliant. First tuned to ~4.55:1 by manual RGB
+     approximation, but axe-core measured the browser's actual rendered color at 4.48:1 — under
+     threshold once real font rendering/anti-aliasing is factored in. Retuned with real margin
+     (5.25:1 as measured, not just calculated) rather than sitting on the edge of the spec
+     number. See CLAUDE.md "Color contrast" requirement. */
+  --color-brand-teal-fill: #0b7973;
   --color-brand-navy: #0b1221; /* body bg, hero, blog headers, footer, contact panel */
   --color-brand-card: #0f172a; /* dark card backgrounds (slate-900) */
   --color-brand-teal-tint-light: #f0f9f9; /* success states only */
@@ -47,6 +50,16 @@
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+/* Hero variant-cycle progress line (see Hero.tsx) */
+@keyframes fill-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
   }
 }
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Lightbulb, ShieldCheck, Star, Users } from "lucide-react";
+import { Lightbulb, ShieldCheck, Star, Target, Users } from "lucide-react";
 import PageHero from "@/components/sections/PageHero";
 import StatFeature from "@/components/sections/StatFeature";
 import ValuesGrid from "@/components/sections/ValuesGrid";
@@ -10,7 +10,7 @@ import ImpactSection from "@/components/sections/ImpactSection";
 import TeamGrid from "@/components/sections/TeamGrid";
 import InsightsGrid from "@/components/sections/InsightsGrid";
 import Testimonials from "@/components/sections/Testimonials";
-import ClosingCta from "@/components/sections/ClosingCta";
+import UpdatedContactBanner from "@/components/sections/UpdatedContactBanner";
 
 export const metadata: Metadata = {
   title: "About Us — Story, Mission & Leadership | DevLogix",
@@ -42,6 +42,26 @@ const VALUES = [
     icon: Users,
     description:
       "Building deep, long-term partnerships with clients to co-create transformative solutions.",
+  },
+];
+
+const DOCTRINE_VALUES = [
+  {
+    icon: ShieldCheck,
+    title: "Integrity",
+    description:
+      "No vaporware, no marketing assertions. We compile, execute, and verify systems directly.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Innovation",
+    description:
+      "Developing on-premise execution nodes optimized for physical data sovereignty.",
+  },
+  {
+    icon: Target,
+    title: "Dedication",
+    description: "Strict adherence to deterministic, high-efficiency compute agreements.",
   },
 ];
 
@@ -106,6 +126,7 @@ export default function AboutPage() {
         body="We deliver deterministic software architectures engineered to survive cloud vendor changes and maximize sovereign computing returns."
         statValue="100+"
         statLabel="Enterprise Projects Delivered"
+        gradient
       />
 
       <StatFeature
@@ -115,6 +136,7 @@ export default function AboutPage() {
         statValue="50+"
         statLabel="Countries Served Globally"
         reverse
+        gradient
       />
 
       <ValuesGrid kicker="Our Values" heading="What Drives Us Forward" items={VALUES} />
@@ -133,7 +155,7 @@ export default function AboutPage() {
         items={STANDARDS}
       />
 
-      <DoctrineStatement lines={["The", "DevLogix", "Doctrine."]} />
+      <DoctrineStatement lines={["The", "DevLogix", "Doctrine."]} values={DOCTRINE_VALUES} />
 
       <ImpactSection
         kicker="Sustainability & Impact"
@@ -154,10 +176,7 @@ export default function AboutPage() {
 
       <Testimonials />
 
-      <ClosingCta
-        heading="How can we help you?"
-        subtitle="Are you ready to push boundaries and explore new frontiers of innovation?"
-      />
+      <UpdatedContactBanner />
     </>
   );
 }

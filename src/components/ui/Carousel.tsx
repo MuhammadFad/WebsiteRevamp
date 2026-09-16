@@ -39,7 +39,7 @@ export const Carousel: React.FC<CarouselProps> = ({ children, className }) => {
         <button
           onClick={prev}
           aria-label="Previous Slide"
-          className="p-2.5 rounded-full border border-slate-300 bg-white text-slate-700 hover:bg-slate-100 hover:text-emerald-600 transition-colors shadow-sm"
+          className="p-2.5 rounded-full border border-slate-300 bg-white text-slate-700 hover:bg-slate-100 hover:text-brand-teal-dark transition-colors shadow-sm"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -55,7 +55,7 @@ export const Carousel: React.FC<CarouselProps> = ({ children, className }) => {
               aria-label={`Go to slide ${dotIdx + 1}`}
               className={cn(
                 "h-2.5 rounded-full transition-all duration-200",
-                currentIndex === dotIdx ? "w-7 bg-emerald-600" : "w-2.5 bg-slate-300 hover:bg-slate-400"
+                currentIndex === dotIdx ? "w-7 bg-brand-teal-dark" : "w-2.5 bg-slate-300 hover:bg-slate-400"
               )}
             />
           ))}
@@ -65,7 +65,7 @@ export const Carousel: React.FC<CarouselProps> = ({ children, className }) => {
         <button
           onClick={next}
           aria-label="Next Slide"
-          className="p-2.5 rounded-full border border-slate-300 bg-white text-slate-700 hover:bg-slate-100 hover:text-emerald-600 transition-colors shadow-sm"
+          className="p-2.5 rounded-full border border-slate-300 bg-white text-slate-700 hover:bg-slate-100 hover:text-brand-teal-dark transition-colors shadow-sm"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

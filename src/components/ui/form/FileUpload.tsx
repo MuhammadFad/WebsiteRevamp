@@ -9,6 +9,7 @@ export type FileUploadProps = {
   required?: boolean;
   accept?: string;
   error?: string;
+  tone?: "light" | "dark";
 };
 
 // HANDOFF-AMBIGUOUS: no résumé/file-upload field existed anywhere in the job/internship
@@ -20,13 +21,18 @@ export default function FileUpload({
   required,
   accept = ".pdf,.doc,.docx",
   error,
+  tone = "light",
 }: FileUploadProps) {
   const id = useId();
   const [fileName, setFileName] = useState<string | null>(null);
+  const labelColor = tone === "dark" ? "text-slate-300" : "text-slate-700";
+  const borderColor = tone === "dark" ? "border-white/20" : "border-slate-300";
+  const mutedColor = tone === "dark" ? "text-slate-400" : "text-slate-500";
+  const filledColor = tone === "dark" ? "text-white" : "text-slate-900";
 
   return (
     <div>
-      <label htmlFor={id} className="text-sm font-medium text-slate-300">
+      <label htmlFor={id} className={`text-sm font-medium ${labelColor}`}>
         {label}
         {required && (
           <span aria-hidden className="text-brand-teal-dark">
@@ -38,15 +44,15 @@ export default function FileUpload({
       <label
         htmlFor={id}
         className={`mt-2 flex cursor-pointer items-center gap-3 rounded-lg border border-dashed px-4 py-3 text-sm transition-colors duration-300 ${
-          error ? "border-red-500" : "border-white/20 hover:border-brand-teal"
+          error ? "border-red-500" : `${borderColor} hover:border-brand-teal`
         }`}
       >
         {fileName ? (
           <FileCheck2 className="h-4 w-4 shrink-0 text-brand-teal-hover" aria-hidden />
         ) : (
-          <Upload className="h-4 w-4 shrink-0 text-slate-400" aria-hidden />
+          <Upload className={`h-4 w-4 shrink-0 ${mutedColor}`} aria-hidden />
         )}
-        <span className={fileName ? "text-white" : "text-slate-400"}>
+        <span className={fileName ? filledColor : mutedColor}>
           {fileName ?? "Upload your resume (PDF or Word)"}
         </span>
       </label>

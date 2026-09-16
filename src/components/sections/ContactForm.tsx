@@ -7,21 +7,34 @@ import TextArea from "../ui/form/TextArea";
 import Select from "../ui/form/Select";
 import PillGroup from "../ui/form/PillGroup";
 import FormStatus from "../ui/form/FormStatus";
-import { useFormSubmit } from "@/lib/useFormSubmit";
+import { useContactSubmit } from "@/lib/useContactSubmit";
 
-const REGIONS = ["Pakistan", "Middle East", "North America", "Europe", "Asia Pacific", "Other"];
-
-const LOOKING_FOR = [
+const SERVICE_TYPES = [
   "Software Development",
   "Digital Transformation",
   "AI & Data",
   "UI/UX Design",
+  "Cloud Solutions",
   "Partnership",
 ];
 
-export default function ContactForm() {
-  const { status, fieldErrors, formError, handleSubmit } = useFormSubmit("/api/contact");
-  const [lookingFor, setLookingFor] = useState("");
+const BUDGETS = ["Under $10k", "$10k – $50k", "$50k – $150k", "$150k+", "Not sure yet"];
+
+export type ContactFormProps = {
+  /** "dark" for the homepage teaser's glass card on navy; "light" (default) for a white card. */
+  tone?: "light" | "dark";
+};
+
+// Previously two divergent forms (homepage LeadForm + the dedicated /contact page ContactForm)
+// with different field sets. The real backend contract only accepts one shape
+// (name/email/phone/serviceType/budgetEstimate/projectDescription), so both placements now
+// share this single component — the same "one shared component, not two" fix as last session's
+// CTA-button consolidation, this time applied to the form itself. `tone` exists because this
+// same component sits on two different card backgrounds (white on /contact, dark glass on the
+// homepage teaser) and every field needs to read correctly on either.
+export default function ContactForm({ tone = "light" }: ContactFormProps) {
+  const { status, fieldErrors, formError, handleSubmit } = useContactSubmit();
+  const [serviceType, setServiceType] = useState("");
 
   if (status === "success") {
     return (
@@ -31,71 +44,82 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6">
-      <p className="text-sm font-light text-slate-400">
+      <p className={`text-sm font-light ${tone === "dark" ? "text-slate-400" : "text-slate-500"}`}>
         Share a few details and we will route you to the right lead.
       </p>
+
+      {/* Spam honeypot — visually hidden (Tailwind's standard sr-only clip pattern, not
+          display:none, since some bots skip that), removed from tab order too. */}
+      <div aria-hidden className="sr-only">
+        <label htmlFor="website">Leave this field empty</label>
+        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <TextField
           label="Full name"
-          name="fullName"
-          tone="dark"
+          name="name"
+          tone={tone}
           required
           placeholder="Jane Doe"
-          error={fieldErrors.fullName}
+          error={fieldErrors.name}
         />
         <TextField
-          label="Business email"
-          name="businessEmail"
+          label="Email"
+          name="email"
           type="email"
-          tone="dark"
+          tone={tone}
           required
           placeholder="jane@company.com"
-          error={fieldErrors.businessEmail}
+          error={fieldErrors.email}
         />
       </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <TextField label="Phone" name="phone" type="tel" tone="dark" placeholder="PK (+92) 300 0000000" />
         <TextField
-          label="Company name"
-          name="companyName"
-          tone="dark"
+          label="Phone"
+          name="phone"
+          type="tel"
+          tone={tone}
           required
-          placeholder="Company"
-          error={fieldErrors.companyName}
+          placeholder="PK (+92) 300 0000000"
+          error={fieldErrors.phone}
         />
-      </div>
-
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <TextField label="Company website" name="companyWebsite" tone="dark" placeholder="company.com" />
-        <Select label="Region" name="region" tone="dark" options={REGIONS} placeholder="Select Region" />
+        <Select
+          label="Budget Estimate"
+          name="budgetEstimate"
+          tone={tone}
+          required
+          options={BUDGETS}
+          placeholder="Select your budget range"
+          error={fieldErrors.budgetEstimate}
+        />
       </div>
 
       <PillGroup
-        label="I am looking for"
-        name="lookingFor"
-        tone="dark"
+        label="Service Type"
+        name="serviceType"
+        tone={tone}
         required
-        options={LOOKING_FOR}
-        value={lookingFor}
-        onChange={setLookingFor}
-        error={fieldErrors.lookingFor}
+        options={SERVICE_TYPES}
+        value={serviceType}
+        onChange={setServiceType}
+        error={fieldErrors.serviceType}
       />
 
       <TextArea
-        label="Tell us more about your project"
-        name="projectDetails"
-        tone="dark"
+        label="Project Description"
+        name="projectDescription"
+        tone={tone}
         required
         placeholder="A few lines on scope, timeline and budget"
-        error={fieldErrors.projectDetails}
+        error={fieldErrors.projectDescription}
       />
 
       {formError && <FormStatus status="error" message={formError} />}
 
       <Button type="submit" variant="teal" size="md" icon disabled={status === "submitting"}>
-        {status === "submitting" ? "Sending..." : "Initiate Alliance"}
+        {status === "submitting" ? "Sending..." : "Get Started"}
       </Button>
     </form>
   );

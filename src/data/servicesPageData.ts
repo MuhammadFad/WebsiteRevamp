@@ -167,7 +167,7 @@ export const latestInsightsData: InsightItem[] = [
       avatarUrl: '/images/services/avatar-devon.jpg',
     },
     imageUrl: '/images/services/insight-1.png',
-    transmissionHref: '/insights/sovereign-economics-monoliths',
+    transmissionHref: '/blog/monoliths-winning-sovereign-economics',
   },
   {
     id: 'insight-2',
@@ -184,7 +184,7 @@ export const latestInsightsData: InsightItem[] = [
       avatarUrl: '/images/services/avatar-sarah.jpg',
     },
     imageUrl: '/images/services/insight-2.png',
-    transmissionHref: '/insights/on-premise-llm-latency-review',
+    transmissionHref: '/blog/on-premise-llm-latency',
   },
   {
     id: 'insight-3',
@@ -201,7 +201,7 @@ export const latestInsightsData: InsightItem[] = [
       avatarUrl: '/images/services/avatar-devon.jpg',
     },
     imageUrl: '/images/services/insight-3.png',
-    transmissionHref: '/insights/securing-edge-node-deployments',
+    transmissionHref: '/blog/securing-edge-node-deployments',
   },
 ];
 

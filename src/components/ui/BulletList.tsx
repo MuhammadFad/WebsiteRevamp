@@ -18,7 +18,7 @@ export const BulletList: React.FC<BulletListProps> = ({
           key={index}
           className="flex items-start gap-2.5 text-sm md:text-base text-slate-600"
         >
-          <span className="mt-2 h-2 w-2 rounded-full bg-emerald-500 flex-shrink-0" />
+          <span className="mt-2 h-2 w-2 rounded-full bg-brand-teal flex-shrink-0" />
           <span>{item}</span>
         </li>
       ))}

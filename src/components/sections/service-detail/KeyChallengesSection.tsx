@@ -16,7 +16,7 @@ export const KeyChallengesSection: React.FC<KeyChallengesSectionProps> = ({
   items = keyChallengesData,
 }) => {
   return (
-    <section className="relative w-full overflow-hidden bg-[#F5F7FA] py-20 lg:py-[100px] px-6 sm:px-8 lg:px-12">
+    <section className="relative w-full overflow-hidden bg-slate-50 py-20 lg:py-[100px] px-6 sm:px-8 lg:px-12">
       <div className="w-full max-w-[1440px] 2xl:max-w-[1600px] mx-auto">
         {/* Section Header: Left-Aligned with smooth scroll reveal */}
         <motion.div
@@ -26,10 +26,10 @@ export const KeyChallengesSection: React.FC<KeyChallengesSectionProps> = ({
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="mb-14 lg:mb-16 max-w-[850px]"
         >
-          <span className="font-['Poppins',sans-serif] font-semibold text-[14px] uppercase tracking-[1.5px] text-[#14B8A6] block mb-3">
+          <span className="font-['Poppins',sans-serif] font-semibold text-[14px] uppercase tracking-[1.5px] text-brand-teal-hover block mb-3">
             {eyebrow}
           </span>
-          <h2 className="font-['Poppins',sans-serif] font-semibold text-3xl sm:text-[40px] leading-tight sm:leading-[52px] text-[#0F172A]">
+          <h2 className="font-['Poppins',sans-serif] font-semibold text-3xl sm:text-[40px] leading-tight sm:leading-[52px] text-brand-card">
             {title}
           </h2>
         </motion.div>
@@ -45,7 +45,7 @@ export const KeyChallengesSection: React.FC<KeyChallengesSectionProps> = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
-                className="w-full min-w-0 h-full min-h-[285px] bg-white border border-[#E4E7EC] rounded-[16px] p-6 sm:p-7 xl:p-8 flex flex-col justify-between shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl hover:-translate-y-1 hover:border-[#14B8A6]/40 transition-all duration-300 group"
+                className="w-full min-w-0 h-full min-h-[285px] bg-white border border-slate-200 rounded-[16px] p-6 sm:p-7 xl:p-8 flex flex-col justify-between shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl hover:-translate-y-1 hover:border-brand-teal-hover/40 transition-all duration-300 group"
               >
                 <div>
                   {/* Alert/Accent Badges: #FB923C (Orange), #F43F5E (Rose) */}
@@ -62,13 +62,13 @@ export const KeyChallengesSection: React.FC<KeyChallengesSectionProps> = ({
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-['Poppins',sans-serif] font-semibold text-[18px] leading-[26px] text-[#0F172A] mb-3 group-hover:text-[#14B8A6] transition-colors">
+                  <h3 className="font-['Poppins',sans-serif] font-semibold text-[18px] leading-[26px] text-brand-card mb-3 group-hover:text-brand-teal-hover transition-colors">
                     {card.title}
                   </h3>
                 </div>
 
                 {/* Description */}
-                <p className="font-['Inter',sans-serif] text-[13px] leading-[21px] text-[#475467] mt-auto">
+                <p className="font-['Inter',sans-serif] text-[13px] leading-[21px] text-slate-600 mt-auto">
                   {card.description}
                 </p>
               </motion.div>

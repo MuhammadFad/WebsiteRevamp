@@ -13,9 +13,9 @@ interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 const bgVariants: Record<SectionBg, string> = {
   white: "bg-white text-slate-900",
   grey: "bg-slate-50 text-slate-900",
-  navy: "bg-[#0B132B] text-white",
-  mint: "bg-[#EAFBF1] text-slate-900",
-  gradient: "bg-gradient-to-r from-emerald-500 to-teal-700 text-white",
+  navy: "bg-brand-navy text-white",
+  mint: "bg-brand-teal/10 text-slate-900",
+  gradient: "bg-gradient-to-r from-brand-teal-fill to-brand-teal-dark text-white",
 };
 
 export const Section: React.FC<SectionProps> = ({

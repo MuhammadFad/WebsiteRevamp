@@ -32,17 +32,17 @@ export const VerticalTabs: React.FC<VerticalTabsProps> = ({ items, className }) 
               className={cn(
                 "relative flex items-center justify-between p-4 text-left text-sm font-semibold transition-colors duration-150",
                 isActive
-                  ? "bg-slate-50 text-emerald-600"
+                  ? "bg-slate-50 text-brand-teal-dark"
                   : "text-slate-700 hover:bg-slate-50/70"
               )}
             >
               {/* Active Green Bar */}
               {isActive && (
-                <span className="absolute left-0 top-0 bottom-0 w-1 bg-emerald-600" />
+                <span className="absolute left-0 top-0 bottom-0 w-1 bg-brand-teal-dark" />
               )}
               <span className={cn(isActive && "pl-2")}>{item.label}</span>
               <svg
-                className={cn("w-4 h-4 transition-transform", isActive ? "text-emerald-600 translate-x-0.5" : "text-slate-400")}
+                className={cn("w-4 h-4 transition-transform", isActive ? "text-brand-teal-dark translate-x-0.5" : "text-slate-400")}
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2}

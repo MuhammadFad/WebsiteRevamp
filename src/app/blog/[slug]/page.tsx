@@ -3,7 +3,7 @@ import { Section } from "@/components/layout/Section";
 import { Container } from "@/components/layout/Container";
 import { PostHero } from "@/components/sections/PostHero";
 import { PostBody } from "@/components/sections/PostBody";
-import { HelpCta } from "@/components/sections/HelpCta";
+import UpdatedContactBanner from "@/components/sections/UpdatedContactBanner";
 import BlogCard from "@/components/cards/BlogCard";
 import { blogs, getPostBySlug, getRelatedPosts } from "@/data/blogs";
 
@@ -52,19 +52,14 @@ export default async function BlogPostPage({ params }: Props) {
                 date={item.date}
                 author={item.author}
                 href={`/blog/${item.slug}`}
-                linkLabel="Read Transmission"
+                linkLabel="Read more"
               />
             ))}
           </div>
         </Container>
       </Section>
 
-      <HelpCta
-        title="How Can We Help You?"
-        description="Are you ready to push boundaries and explore new frontiers of innovation?"
-        buttonLabel="Let's Work Together"
-        buttonHref="/#contact"
-      />
+      <UpdatedContactBanner />
     </>
   );
 }

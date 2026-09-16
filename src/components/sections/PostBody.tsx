@@ -22,7 +22,7 @@ export function PostBody({ post, recommended }: Props) {
             {post.sections.map((section, sectionIndex) => (
               <div key={section.id} id={section.id} className="scroll-mt-28">
                 {section.heading && (
-                  <h2 className="mb-4 mt-10 border-l-[3px] border-emerald-500 pl-3 text-xl font-bold text-slate-900 sm:text-2xl">
+                  <h2 className="mb-4 mt-10 border-l-[3px] border-brand-teal pl-3 text-xl font-bold text-slate-900 sm:text-2xl">
                     {section.heading}
                   </h2>
                 )}
@@ -53,7 +53,7 @@ export function PostBody({ post, recommended }: Props) {
                 })}
 
                 {section.quote && (
-                  <blockquote className="my-8 border-l-[3px] border-emerald-500 pl-5 text-base italic leading-relaxed text-emerald-600 sm:text-lg">
+                  <blockquote className="my-8 border-l-[3px] border-brand-teal pl-5 text-base italic leading-relaxed text-brand-teal-dark sm:text-lg">
                     &ldquo;{section.quote}&rdquo;
                   </blockquote>
                 )}
@@ -63,7 +63,7 @@ export function PostBody({ post, recommended }: Props) {
                     {section.steps.map((step, stepIndex) => (
                       <li key={step.title} className="flex gap-4">
                         {/* 01, 02, 03 ... */}
-                        <span className="w-7 shrink-0 pt-0.5 text-sm font-bold text-emerald-600">
+                        <span className="w-7 shrink-0 pt-0.5 text-sm font-bold text-brand-teal-dark">
                           0{stepIndex + 1}
                         </span>
                         <div>
@@ -86,7 +86,7 @@ export function PostBody({ post, recommended }: Props) {
           <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
             {/* Table of contents */}
             {tocItems.length > 0 && (
-              <div className="rounded-lg border border-emerald-200 bg-white p-5">
+              <div className="rounded-lg border border-brand-teal/20 bg-white p-5">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-900">
                   Table of Contents
                 </p>
@@ -95,7 +95,7 @@ export function PostBody({ post, recommended }: Props) {
                     <li key={section.id}>
                       <a
                         href={`#${section.id}`}
-                        className="text-xs text-slate-600 transition-colors hover:text-emerald-600 sm:text-sm"
+                        className="text-xs text-slate-600 transition-colors hover:text-brand-teal-dark sm:text-sm"
                       >
                         {section.heading}
                       </a>
@@ -107,7 +107,7 @@ export function PostBody({ post, recommended }: Props) {
 
             {/* Recommended reads */}
             {recommended.length > 0 && (
-              <div className="rounded-lg border border-emerald-200 bg-[#F4FBF8] p-5">
+              <div className="rounded-lg border border-brand-teal/20 bg-slate-50 p-5">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-900">
                   Recommended Reads
                 </p>
@@ -116,9 +116,9 @@ export function PostBody({ post, recommended }: Props) {
                     <li key={item.slug}>
                       <Link
                         href={`/blog/${item.slug}`}
-                        className="flex gap-3 rounded-md border border-slate-200 bg-white p-3 transition-colors hover:border-emerald-300"
+                        className="flex gap-3 rounded-md border border-slate-200 bg-white p-3 transition-colors hover:border-brand-teal/30"
                       >
-                        <div className="relative h-14 w-16 shrink-0 overflow-hidden rounded bg-[#E6F6F0]">
+                        <div className="relative h-14 w-16 shrink-0 overflow-hidden rounded bg-brand-teal/10">
                           {item.image && (
                             <Image
                               src={item.image}
@@ -130,7 +130,7 @@ export function PostBody({ post, recommended }: Props) {
                           )}
                         </div>
                         <div className="min-w-0">
-                          <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-emerald-600">
+                          <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-brand-teal-dark">
                             {item.category}
                           </p>
                           <p className="mt-0.5 line-clamp-2 text-xs font-semibold leading-snug text-slate-900">

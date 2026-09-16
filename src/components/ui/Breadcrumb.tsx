@@ -41,7 +41,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, className }) => {
               )}
 
               {isLast || !item.href ? (
-                <span className="font-medium text-emerald-400">
+                <span className="font-medium text-brand-teal-hover">
                   {item.label}
                 </span>
               ) : (

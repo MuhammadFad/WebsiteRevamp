@@ -20,8 +20,8 @@ export function Pagination({ page, totalPages, onChange, className = "" }: Props
   const isLastPage = page === totalPages;
 
   const base = "min-w-9 h-9 px-3 rounded-md border text-xs font-semibold transition-colors";
-  const normal = "border-slate-300 bg-white text-slate-700 hover:border-emerald-500 hover:text-emerald-700 disabled:opacity-40";
-  const active = "border-emerald-600 bg-emerald-600 text-white";
+  const normal = "border-slate-300 bg-white text-slate-700 hover:border-brand-teal-dark hover:text-brand-teal-dark disabled:opacity-40";
+  const active = "border-brand-teal-dark bg-brand-teal-dark text-white";
 
   return (
     <nav className={`flex flex-wrap items-center justify-center gap-2 ${className}`}>

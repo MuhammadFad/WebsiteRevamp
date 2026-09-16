@@ -16,7 +16,7 @@ import PageHero from "@/components/sections/PageHero";
 import IntroWithStatsBar from "@/components/sections/IntroWithStatsBar";
 import ValuesGrid from "@/components/sections/ValuesGrid";
 import IndustrySpotlight from "@/components/sections/IndustrySpotlight";
-import ClosingCta from "@/components/sections/ClosingCta";
+import UpdatedContactBanner from "@/components/sections/UpdatedContactBanner";
 
 export const metadata: Metadata = {
   title: "Industries We Serve — Solutions by Sector | DevLogix",
@@ -151,20 +151,105 @@ export default function IndustriesPage() {
       <IndustrySpotlight
         heading="Creating Meaningful Impact Across Industries"
         body="We partner with enterprises across industries to solve complex challenges, delivering scalable technology services aligned with their goals to help them adapt, grow, and lead."
-        industryName="Banking & Financial Services"
-        industryBody="We help financial institutions modernise their core systems, elevate digital experiences, and build resilience. Our solutions drive compliance, agility, and innovation, so banks and financial firms can lead in a rapidly evolving landscape."
-        services={[
-          "Core Modernisation",
-          "Digital Banking Transformation",
-          "Global Capacity Centre",
-          "Risk & Compliance Technology",
-          "Data Analytics & AI",
-          "Cloud Migration & Infrastructure",
+        industries={[
+          {
+            name: "Banking & Financial Services",
+            body: "We help financial institutions modernise their core systems, elevate digital experiences, and build resilience. Our solutions drive compliance, agility, and innovation, so banks and financial firms can lead in a rapidly evolving landscape.",
+            services: [
+              "Core Modernisation",
+              "Digital Banking Transformation",
+              "Global Capacity Centre",
+              "Risk & Compliance Technology",
+              "Data Analytics & AI",
+              "Cloud Migration & Infrastructure",
+            ],
+            caseStudyTag: "Case Study",
+            caseStudyTitle: "Accelerating digital transformation for a leading bank",
+            caseStudyBody:
+              "How DevLogix helped a top-tier bank modernise its core systems and launch a fully digital banking platform in under 18 months.",
+          },
+          {
+            name: "Hospitality",
+            body: "We help hotel groups, resorts, and travel businesses modernise guest-facing systems and back-of-house operations alike. Our solutions unify booking, loyalty, and property management so hospitality brands can deliver personalised experiences at scale.",
+            services: [
+              "Smart Booking Platforms",
+              "Guest Experience & Personalisation",
+              "Property Management Integration",
+              "Loyalty & CRM Systems",
+              "Revenue & Demand Analytics",
+              "Cloud Migration & Infrastructure",
+            ],
+            caseStudyTag: "Case Study",
+            caseStudyTitle: "Modernising guest experience for a regional hotel group",
+            caseStudyBody:
+              "How DevLogix unified booking and loyalty systems across properties, cutting reservation friction and lifting repeat bookings.",
+          },
+          {
+            name: "Communications",
+            body: "We build resilient, high-performance platforms for telecom operators and media companies navigating rapid shifts in content delivery and connectivity. Our solutions modernise network operations and customer-facing systems without disrupting service.",
+            services: [
+              "Network Operations Modernisation",
+              "Customer Experience Platforms",
+              "Billing & OSS/BSS Systems",
+              "Content Delivery Infrastructure",
+              "Data Analytics & AI",
+              "Cloud Migration & Infrastructure",
+            ],
+            caseStudyTag: "Case Study",
+            caseStudyTitle: "Rebuilding customer operations for a regional telecom provider",
+            caseStudyBody:
+              "How DevLogix replaced a legacy billing and support stack with a unified platform, reducing resolution time and churn.",
+          },
+          {
+            name: "Healthcare & Life Sciences",
+            body: "We design digital health platforms and AI-assisted tools that support providers with data accuracy, patient experience, and operational efficiency. Our solutions help healthcare organisations modernise securely, with compliance built in from day one.",
+            services: [
+              "Digital Health Platforms",
+              "Patient Experience Systems",
+              "Clinical Data & Interoperability",
+              "AI-Assisted Diagnostics Tooling",
+              "Regulatory & Compliance Technology",
+              "Cloud Migration & Infrastructure",
+            ],
+            caseStudyTag: "Case Study",
+            caseStudyTitle: "Building a compliant patient data platform for a healthcare network",
+            caseStudyBody:
+              "How DevLogix unified fragmented patient records into one secure, interoperable platform across a multi-site provider network.",
+          },
+          {
+            name: "Retail & CPG",
+            body: "We power retail and e-commerce businesses with scalable storefronts, inventory tooling, and AI-driven personalisation that drives conversion. Our solutions connect the full commerce stack, from supply chain to checkout.",
+            services: [
+              "E-Commerce Platforms",
+              "Inventory & Supply Chain Tooling",
+              "AI-Driven Personalisation",
+              "Omnichannel Integration",
+              "Data Analytics & AI",
+              "Cloud Migration & Infrastructure",
+            ],
+            caseStudyTag: "Case Study",
+            caseStudyTitle: "Scaling omnichannel commerce for a multi-brand retailer",
+            caseStudyBody:
+              "How DevLogix unified storefront and inventory systems across brands, enabling real-time stock visibility and faster checkout.",
+          },
+          {
+            name: "Public Sector",
+            body: "We partner with government and public institutions to modernise legacy systems, improve service delivery, and build citizen-first digital infrastructure. Our solutions balance security, compliance, and accessibility at scale.",
+            services: [
+              "Legacy System Modernisation",
+              "Citizen-Facing Digital Services",
+              "Data Security & Compliance",
+              "Case Management Systems",
+              "Data Analytics & AI",
+              "Cloud Migration & Infrastructure",
+            ],
+            caseStudyTag: "Case Study",
+            caseStudyTitle: "Modernising citizen services for a public sector agency",
+            caseStudyBody:
+              "How DevLogix replaced a paper-based intake process with a secure digital service, cutting processing time significantly.",
+          },
         ]}
         learnMoreHref="/contact"
-        caseStudyTag="Case Study"
-        caseStudyTitle="Accelerating digital transformation for a leading bank"
-        caseStudyBody="How DevLogix helped a top-tier bank modernise its core systems and launch a fully digital banking platform in under 18 months."
         caseStudyHref="/contact"
       />
 
@@ -176,10 +261,7 @@ export default function IndustriesPage() {
         tone="dark"
       />
 
-      <ClosingCta
-        heading="How can we help you?"
-        subtitle="Are you ready to push boundaries and explore new frontiers of innovation?"
-      />
+      <UpdatedContactBanner />
     </>
   );
 }

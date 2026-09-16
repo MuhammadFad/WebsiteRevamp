@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { BlogHero } from "@/components/sections/BlogHero";
 import { FeaturedPost } from "@/components/sections/FeaturedPost";
 import { BlogGrid } from "@/components/sections/BlogGrid";
-import { HelpCta } from "@/components/sections/HelpCta";
+import UpdatedContactBanner from "@/components/sections/UpdatedContactBanner";
 import {
   blogs,
   blogIndustries,
@@ -47,12 +47,7 @@ export default async function BlogPage({ searchParams }: Props) {
         initialQuery={q}
       />
 
-      <HelpCta
-        title="How Can We Help You?"
-        description="Are you ready to push boundaries and explore new frontiers of innovation?"
-        buttonLabel="Let's Work Together"
-        buttonHref="/#contact"
-      />
+      <UpdatedContactBanner />
     </>
   );
 }

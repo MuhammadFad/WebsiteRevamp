@@ -5,7 +5,7 @@ import { Section } from "@/components/layout/Section";
 import { Container } from "@/components/layout/Container";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
-import { Button } from "@/components/ui/Button";
+import Button from "@/components/ui/Button";
 import { Pagination } from "@/components/ui/Pagination";
 import BlogCard from "@/components/cards/BlogCard";
 import type { BlogPost } from "@/data/blogs";
@@ -76,6 +76,7 @@ export function BlogGrid({
 
           <div className="md:w-44">
             <Select
+              aria-label="Filter by industry"
               placeholder="Industries"
               options={industries.map((name) => ({ value: name, label: name }))}
               onChange={(e) => {
@@ -87,6 +88,7 @@ export function BlogGrid({
 
           <div className="md:w-44">
             <Select
+              aria-label="Filter by service"
               placeholder="Services"
               options={services.map((name) => ({ value: name, label: name }))}
               onChange={(e) => {

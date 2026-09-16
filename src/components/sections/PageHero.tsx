@@ -24,12 +24,12 @@ export default function PageHero({
     <section className="relative overflow-hidden bg-brand-navy">
       <AmbientGlow className="left-1/2 top-0 h-96 w-96 -translate-x-1/2 -translate-y-1/2" />
       <Container
-        className={`relative grid grid-cols-1 items-center gap-10 pt-20 pb-16 md:pt-28 md:pb-20 ${
+        className={`relative grid grid-cols-1 items-center gap-10 pt-16 pb-12 md:pt-20 md:pb-14 ${
           visual ? "lg:grid-cols-[1.1fr_0.9fr] lg:gap-16" : ""
         }`}
       >
         <div className="flex flex-col gap-6">
-          <h1 className="max-w-4xl text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl">
+          <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
             {title}
           </h1>
           {subtitle && (

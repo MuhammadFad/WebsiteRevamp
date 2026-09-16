@@ -10,7 +10,7 @@ const PocIcon: React.FC<{ type: PocItem['iconType'] | string }> = ({ type }) => 
     case 'message':
     case 'message-square':
       return (
-        <svg className="w-6 h-6 text-[#14B8A6]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -22,7 +22,7 @@ const PocIcon: React.FC<{ type: PocItem['iconType'] | string }> = ({ type }) => 
     case 'chart':
     case 'bar-chart':
       return (
-        <svg className="w-6 h-6 text-[#14B8A6]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -33,7 +33,7 @@ const PocIcon: React.FC<{ type: PocItem['iconType'] | string }> = ({ type }) => 
       );
     case 'database':
       return (
-        <svg className="w-6 h-6 text-[#14B8A6]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -45,7 +45,7 @@ const PocIcon: React.FC<{ type: PocItem['iconType'] | string }> = ({ type }) => 
     case 'file':
     case 'file-text':
       return (
-        <svg className="w-6 h-6 text-[#14B8A6]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -78,7 +78,7 @@ export const PocSection: React.FC<PocSectionProps> = ({
 }) => {
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#F5F7FA] py-20 lg:py-[100px] px-6 sm:px-8 lg:px-12">
+    <section className="relative w-full overflow-hidden bg-slate-50 py-20 lg:py-[100px] px-6 sm:px-8 lg:px-12">
       <div className="w-full max-w-[1440px] 2xl:max-w-[1600px] mx-auto">
         {/* Header with smooth scroll reveal */}
         <motion.div
@@ -88,13 +88,13 @@ export const PocSection: React.FC<PocSectionProps> = ({
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-14 lg:mb-16 max-w-[800px] mx-auto"
         >
-          <span className="font-['Poppins',sans-serif] font-semibold text-[14px] uppercase tracking-wider text-[#14B8A6] block mb-3">
+          <span className="font-['Poppins',sans-serif] font-semibold text-[14px] uppercase tracking-wider text-brand-teal-hover block mb-3">
             {eyebrow}
           </span>
-          <h2 className="font-['Poppins',sans-serif] font-semibold text-3xl sm:text-[40px] leading-tight sm:leading-[52px] text-[#0F172A] mb-4">
+          <h2 className="font-['Poppins',sans-serif] font-semibold text-3xl sm:text-[40px] leading-tight sm:leading-[52px] text-brand-card mb-4">
             {title}
           </h2>
-          <p className="font-['Inter',sans-serif] text-[16px] leading-[26px] text-[#475467]">
+          <p className="font-['Inter',sans-serif] text-[16px] leading-[26px] text-slate-600">
             {subtitle}
           </p>
         </motion.div>
@@ -108,28 +108,29 @@ export const PocSection: React.FC<PocSectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
-              className="w-full min-w-0 h-full min-h-[356px] bg-white border border-[#E4E7EC] rounded-[16px] p-6 sm:p-7 xl:p-8 flex flex-col justify-between shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl hover:-translate-y-1 hover:border-[#14B8A6]/40 transition-all duration-300 group"
+              className="w-full min-w-0 h-full min-h-[356px] bg-white border border-slate-200 rounded-[16px] p-6 sm:p-7 xl:p-8 flex flex-col justify-between shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl hover:-translate-y-1 hover:border-brand-teal-hover/40 transition-all duration-300 group"
             >
               <div>
-                {/* Icon Box */}
-                <div className="w-12 h-12 rounded-xl bg-[#F0FDFA] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                {/* Icon Box — bg-brand-teal-fill (not bg-brand-teal) so the icon reads against
+                    it, same contrast fix as the Core Services icon boxes. */}
+                <div className="w-12 h-12 rounded-xl bg-brand-teal-fill flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <PocIcon type={card.iconType} />
                 </div>
 
                 {/* Title */}
-                <h3 className="font-['Poppins',sans-serif] font-semibold text-[18px] text-[#0F172A] mb-3 group-hover:text-[#14B8A6] transition-colors">
+                <h3 className="font-['Poppins',sans-serif] font-semibold text-[18px] text-brand-card mb-3 group-hover:text-brand-teal-hover transition-colors">
                   {card.title}
                 </h3>
 
                 {/* Description */}
-                <p className="font-['Inter',sans-serif] text-[13px] leading-[21px] text-[#475467]">
+                <p className="font-['Inter',sans-serif] text-[13px] leading-[21px] text-slate-600">
                   {card.description}
                 </p>
               </div>
 
               {/* Timeline Pill */}
-              <div className="pt-4 border-t border-[#E4E7EC] mt-6">
-                <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[12px] uppercase text-[#14B8A6] tracking-wider">
+              <div className="pt-4 border-t border-slate-200 mt-6">
+                <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[12px] uppercase text-brand-teal-hover tracking-wider">
                   Timeline: {card.timeline}
                 </span>
               </div>
@@ -141,7 +142,7 @@ export const PocSection: React.FC<PocSectionProps> = ({
         <div className="text-center">
           <Link
             href={ctaHref}
-            className="inline-flex items-center justify-center bg-[#14B8A6] hover:bg-[#0D938C] text-white font-['Poppins',sans-serif] font-semibold text-[15px] px-[32px] py-[14px] rounded-[24px] transition-all duration-200 shadow-lg shadow-[#14B8A6]/20 hover:scale-[1.02]"
+            className="inline-flex items-center justify-center bg-brand-teal-fill hover:bg-brand-teal text-white font-['Poppins',sans-serif] font-semibold text-[15px] px-[32px] py-[14px] rounded-[24px] transition-all duration-200 shadow-lg shadow-[var(--color-brand-teal-hover)]/20 hover:scale-[1.02]"
           >
             {ctaText}
           </Link>
