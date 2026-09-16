@@ -91,9 +91,14 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Copyright Line */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© {new Date().getFullYear()} DevLogix Inc. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4 text-center">
+          <div className="hidden md:flex items-center gap-6 invisible pointer-events-none" aria-hidden="true">
+            <span>Privacy</span>
+            <span>Terms</span>
+            <span>Cookies</span>
+          </div>
+          <p className="text-center">© {new Date().getFullYear()} DevLogix Inc. All rights reserved.</p>
+          <div className="flex items-center justify-center gap-6">
             <Link href="/privacy" className="hover:text-slate-400 transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-slate-400 transition-colors">Terms</Link>
             <Link href="/cookies" className="hover:text-slate-400 transition-colors">Cookies</Link>
