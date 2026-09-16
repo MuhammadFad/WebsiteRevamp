@@ -1,0 +1,70 @@
+import { notFound } from "next/navigation";
+import { Section } from "@/components/layout/Section";
+import { Container } from "@/components/layout/Container";
+import { PostHero } from "@/components/sections/PostHero";
+import { PostBody } from "@/components/sections/PostBody";
+import { HelpCta } from "@/components/sections/HelpCta";
+import BlogCard from "@/components/cards/BlogCard";
+import { blogs, getPostBySlug, getRelatedPosts } from "@/data/blogs";
+
+type Props = {
+  // The part of the URL after /blog/ — Next gives it to us as a Promise
+  params: Promise<{ slug: string }>;
+};
+
+// Tell Next which /blog/... pages exist, so it can build them ahead of time
+export function generateStaticParams() {
+  return blogs.map((post) => ({ slug: post.slug }));
+}
+
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+
+  // No post with this slug → show the 404 page
+  if (!post) {
+    notFound();
+  }
+
+  const related = getRelatedPosts(post.slug, 3);
+  const recommended = related.slice(0, 2);
+
+  return (
+    <>
+      <PostHero post={post} />
+
+      <PostBody post={post} recommended={recommended} />
+
+      <Section bg="grey">
+        <Container>
+          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+            You May Also Like
+          </h2>
+
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {related.map((item) => (
+              <BlogCard
+                key={item.slug}
+                title={item.title}
+                excerpt={item.excerpt}
+                image={item.image}
+                tag={item.category}
+                date={item.date}
+                author={item.author}
+                href={`/blog/${item.slug}`}
+                linkLabel="Read Transmission"
+              />
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <HelpCta
+        title="How Can We Help You?"
+        description="Are you ready to push boundaries and explore new frontiers of innovation?"
+        buttonLabel="Let's Work Together"
+        buttonHref="/#contact"
+      />
+    </>
+  );
+}

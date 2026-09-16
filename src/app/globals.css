@@ -68,4 +68,6 @@ html {
 body {
   background: var(--color-brand-navy);
   color: #fff;
+  overflow-x: hidden;
+  width: 100%;
 }

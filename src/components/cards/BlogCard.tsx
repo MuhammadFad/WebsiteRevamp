@@ -8,6 +8,8 @@ export type BlogCardProps = {
   image?: string;
   tag?: string;
   tags?: string[]; // small grey chips under the text
+  date?: string; // e.g. "March 8, 2026"
+  author?: { name: string; avatar?: string }; // shown at the bottom of the vertical card
   href: string;
   linkLabel?: string;
   /**
@@ -25,6 +27,8 @@ export default function BlogCard({
   image,
   tag,
   tags,
+  date,
+  author,
   href,
   linkLabel = "Read more",
   variant = "vertical",
@@ -129,10 +133,19 @@ export default function BlogCard({
       </div>
 
       <div className="flex flex-1 flex-col p-5">
-        {tag && (
-          <span className="mb-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-teal-dark">
-            {tag}
-          </span>
+        {(tag || date) && (
+          <div className="mb-3 flex flex-wrap items-center gap-2">
+            {tag && (
+              <span className="rounded-sm bg-[#16A97F] px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-white">
+                {tag}
+              </span>
+            )}
+            {date && (
+              <span className="text-[10px] uppercase tracking-[0.08em] text-[#8695A4]">
+                {date}
+              </span>
+            )}
+          </div>
         )}
 
         <h3 className="text-sm font-bold leading-snug text-slate-900 sm:text-base">{title}</h3>
@@ -152,7 +165,28 @@ export default function BlogCard({
           </div>
         )}
 
-        <span className="mt-4 inline-flex items-center gap-2 pt-1 text-xs font-semibold text-brand-teal-dark">
+        {author && (
+          <div className="mt-4 flex items-center gap-2">
+            {author.avatar ? (
+              <Image
+                src={author.avatar}
+                alt={author.name}
+                width={24}
+                height={24}
+                className="h-6 w-6 rounded-full object-cover"
+              />
+            ) : (
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#E6F6F0] text-[9px] font-semibold text-[#16A97F]">
+                {author.name[0]}
+              </span>
+            )}
+            <span className="text-[11px] font-medium text-[#0B1A2B]">
+              {author.name}
+            </span>
+          </div>
+        )}
+
+        <span className="mt-auto inline-flex items-center gap-2 pt-4 text-xs font-semibold text-[#16A97F]">
           {linkLabel}
           <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </span>
