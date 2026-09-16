@@ -22,7 +22,10 @@ export function PostHero({ post }: Props) {
 
         {/* Category + author + date + read time */}
         <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <Tag variant="mint">{post.category}</Tag>
+          {/* variant="dark", not "mint" — "mint" is text-brand-teal-dark, meant for light
+              backgrounds only (2.84:1 on this section's bg-brand-navy, well under the 4.5:1 AA
+              threshold); "dark" exists in Tag.tsx specifically for this dark-hero context. */}
+          <Tag variant="dark">{post.category}</Tag>
 
           <div className="flex items-center gap-3">
             {post.author.avatar ? (

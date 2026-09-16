@@ -48,7 +48,11 @@ export default function UpdatedContactBanner({
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
             </Button>
 
-            <p className="text-xs font-light text-slate-400">
+            {/* text-slate-600, not slate-400 — slate-400 on white measures 2.63:1, badly under
+                the 4.5:1 AA threshold. This card was never scanned by the a11y suite before
+                because Reveal's whileInView animation kept it at opacity:0 until scrolled into
+                view, and the test didn't wait for that — see accessibility.spec.ts. */}
+            <p className="text-xs font-light text-slate-600">
               Prefer email? Reach us at{" "}
               <a href={`mailto:${email}`} className="font-medium text-brand-teal-dark underline">
                 {email}
