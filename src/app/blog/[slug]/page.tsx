@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { Section } from "@/components/layout/Section";
-import { Container } from "@/components/layout/Container";
+import Container from "@/components/ui/Container";
 import { PostHero } from "@/components/sections/PostHero";
 import { PostBody } from "@/components/sections/PostBody";
 import UpdatedContactBanner from "@/components/sections/UpdatedContactBanner";

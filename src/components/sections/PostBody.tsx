@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Section } from "@/components/layout/Section";
-import { Container } from "@/components/layout/Container";
+import Container from "@/components/ui/Container";
 import type { BlogPost } from "@/data/blogs";
 
 type Props = {

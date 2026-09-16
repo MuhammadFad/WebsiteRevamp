@@ -30,7 +30,12 @@ export default function ServicesCarousel() {
           </Link>
         </Reveal>
 
-        <div className="mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div
+          role="region"
+          aria-label="Our Services"
+          tabIndex={0}
+          className="mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
+        >
           {coreServicesData.map((service) => (
             <div
               key={service.id}

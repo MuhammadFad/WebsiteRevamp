@@ -44,7 +44,9 @@ export default function ContactForm({ tone = "light" }: ContactFormProps) {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6">
-      <p className={`text-sm font-light ${tone === "dark" ? "text-slate-400" : "text-slate-500"}`}>
+      {/* text-slate-600, not the "Body Mid" slate-500 token — slate-500 on white measures
+          4.43-4.48:1 under axe, just under the 4.5:1 AA threshold; slate-600 clears it. */}
+      <p className={`text-sm font-light ${tone === "dark" ? "text-slate-400" : "text-slate-600"}`}>
         Share a few details and we will route you to the right lead.
       </p>
 

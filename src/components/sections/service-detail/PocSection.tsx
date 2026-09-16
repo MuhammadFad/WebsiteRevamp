@@ -88,13 +88,13 @@ export const PocSection: React.FC<PocSectionProps> = ({
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-14 lg:mb-16 max-w-[800px] mx-auto"
         >
-          <span className="font-['Poppins',sans-serif] font-semibold text-[14px] uppercase tracking-wider text-brand-teal-hover block mb-3">
+          <span className="font-semibold text-[14px] uppercase tracking-wider text-brand-teal-hover block mb-3">
             {eyebrow}
           </span>
-          <h2 className="font-['Poppins',sans-serif] font-semibold text-3xl sm:text-[40px] leading-tight sm:leading-[52px] text-brand-card mb-4">
+          <h2 className="font-semibold text-3xl sm:text-[40px] leading-tight sm:leading-[52px] text-brand-card mb-4">
             {title}
           </h2>
-          <p className="font-['Inter',sans-serif] text-[16px] leading-[26px] text-slate-600">
+          <p className="text-[16px] leading-[26px] text-slate-600">
             {subtitle}
           </p>
         </motion.div>
@@ -118,19 +118,19 @@ export const PocSection: React.FC<PocSectionProps> = ({
                 </div>
 
                 {/* Title */}
-                <h3 className="font-['Poppins',sans-serif] font-semibold text-[18px] text-brand-card mb-3 group-hover:text-brand-teal-hover transition-colors">
+                <h3 className="font-semibold text-[18px] text-brand-card mb-3 group-hover:text-brand-teal-hover transition-colors">
                   {card.title}
                 </h3>
 
                 {/* Description */}
-                <p className="font-['Inter',sans-serif] text-[13px] leading-[21px] text-slate-600">
+                <p className="text-[13px] leading-[21px] text-slate-600">
                   {card.description}
                 </p>
               </div>
 
               {/* Timeline Pill */}
               <div className="pt-4 border-t border-slate-200 mt-6">
-                <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[12px] uppercase text-brand-teal-hover tracking-wider">
+                <span className="font-jakarta font-bold text-[12px] uppercase text-brand-teal-hover tracking-wider">
                   Timeline: {card.timeline}
                 </span>
               </div>
@@ -142,7 +142,7 @@ export const PocSection: React.FC<PocSectionProps> = ({
         <div className="text-center">
           <Link
             href={ctaHref}
-            className="inline-flex items-center justify-center bg-brand-teal-fill hover:bg-brand-teal text-white font-['Poppins',sans-serif] font-semibold text-[15px] px-[32px] py-[14px] rounded-[24px] transition-all duration-200 shadow-lg shadow-[var(--color-brand-teal-hover)]/20 hover:scale-[1.02]"
+            className="inline-flex items-center justify-center bg-brand-teal-fill hover:bg-brand-teal text-white font-semibold text-[15px] px-[32px] py-[14px] rounded-[24px] transition-all duration-200 shadow-lg shadow-[var(--color-brand-teal-hover)]/20 hover:scale-[1.02]"
           >
             {ctaText}
           </Link>

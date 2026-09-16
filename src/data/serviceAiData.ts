@@ -276,24 +276,24 @@ export const industriesData: IndustryCard[] = [
   {
     id: 'retail-cpg',
     title: 'Retail & CPG',
-    imageSrc: '/images/services/industry-card (1).png',
-    fallbackSrc: '/images/services/industry-card (1).png',
+    imageSrc: '/images/services/industry-card-1.png',
+    fallbackSrc: '/images/services/industry-card-1.png',
     description:
       'Supply chain forecasting and personalized product recommendation models',
   },
   {
     id: 'oil-gas-energy',
     title: 'Oil, Gas & Energy',
-    imageSrc: '/images/services/industry-card (2).png',
-    fallbackSrc: '/images/services/industry-card (2).png',
+    imageSrc: '/images/services/industry-card-2.png',
+    fallbackSrc: '/images/services/industry-card-2.png',
     description:
       'Preventive maintenance modeling, seismic data analytics, and workflow automation.',
   },
   {
     id: 'banking-finance',
     title: 'Financial Services',
-    imageSrc: '/images/services/industry-card (3).png',
-    fallbackSrc: '/images/services/industry-card (3).png',
+    imageSrc: '/images/services/industry-card-3.png',
+    fallbackSrc: '/images/services/industry-card-3.png',
     description:
       'Algorithmic fraud detection, automated compliance reporting, and intelligent risk underwriting.',
   },

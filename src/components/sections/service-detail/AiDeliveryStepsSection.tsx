@@ -36,13 +36,13 @@ export const AiDeliveryStepsSection: React.FC<AiDeliveryStepsSectionProps> = ({
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="mb-14 lg:mb-16 max-w-[800px]"
         >
-          <span className="font-['Poppins',sans-serif] font-semibold text-[14px] uppercase tracking-wider text-brand-teal-hover block mb-3">
+          <span className="font-semibold text-[14px] uppercase tracking-wider text-brand-teal-hover block mb-3">
             {eyebrow}
           </span>
-          <h2 className="font-['Poppins',sans-serif] font-semibold text-3xl sm:text-[40px] leading-tight sm:leading-[52px] text-white mb-4">
+          <h2 className="font-semibold text-3xl sm:text-[40px] leading-tight sm:leading-[52px] text-white mb-4">
             {title}
           </h2>
-          <p className="font-['Inter',sans-serif] text-[15px] sm:text-[16px] leading-[26px] text-slate-400">
+          <p className="text-[15px] sm:text-[16px] leading-[26px] text-slate-400">
             {subtitle}
           </p>
         </motion.div>
@@ -110,18 +110,18 @@ export const AiDeliveryStepsSection: React.FC<AiDeliveryStepsSectionProps> = ({
               >
                 <div>
                   {/* 01, 02, 03, 04 in Teal var(--color-brand-teal-hover) */}
-                  <span className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-[28px] text-brand-teal-hover block mb-6">
+                  <span className="font-jakarta font-extrabold text-[28px] text-brand-teal-hover block mb-6">
                     {step.stepNumber}
                   </span>
 
                   {/* Step Title */}
-                  <h3 className="font-['Poppins',sans-serif] font-semibold text-[20px] leading-[28px] text-white mb-3">
+                  <h3 className="font-semibold text-[20px] leading-[28px] text-white mb-3">
                     {step.title}
                   </h3>
                 </div>
 
                 {/* Description */}
-                <p className="font-['Inter',sans-serif] font-normal text-[14px] leading-[22px] text-slate-400 mt-auto">
+                <p className="font-normal text-[14px] leading-[22px] text-slate-400 mt-auto">
                   {step.description}
                 </p>
               </motion.div>

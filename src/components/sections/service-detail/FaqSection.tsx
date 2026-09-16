@@ -17,7 +17,7 @@ const AccordionItem: React.FC<{
         onClick={onToggle}
         className="w-full flex items-center justify-between text-left gap-4 cursor-pointer group focus:outline-none"
       >
-        <span className="font-['Poppins',sans-serif] font-medium text-[16px] sm:text-[17px] text-brand-card group-hover:text-brand-teal-hover transition-colors">
+        <span className="font-medium text-[16px] sm:text-[17px] text-brand-card group-hover:text-brand-teal-hover transition-colors">
           {item.question}
         </span>
         <div
@@ -42,7 +42,7 @@ const AccordionItem: React.FC<{
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <p className="font-['Inter',sans-serif] text-[14px] leading-[24px] text-slate-500 pt-4 pr-6">
+            <p className="text-[14px] leading-[24px] text-slate-500 pt-4 pr-6">
               {item.answer}
             </p>
           </motion.div>
@@ -87,19 +87,19 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="lg:col-span-5 w-full max-w-lg min-w-0"
           >
-            <span className="font-['Poppins',sans-serif] font-semibold text-[14px] uppercase tracking-wider text-brand-teal-hover block mb-3">
+            <span className="font-semibold text-[14px] uppercase tracking-wider text-brand-teal-hover block mb-3">
               {eyebrow}
             </span>
-            <h2 className="font-['Poppins',sans-serif] font-semibold text-3xl sm:text-[38px] leading-tight text-brand-card mb-4">
+            <h2 className="font-semibold text-3xl sm:text-[38px] leading-tight text-brand-card mb-4">
               {title}
             </h2>
-            <p className="font-['Inter',sans-serif] text-[15px] leading-[25px] text-slate-500 mb-8">
+            <p className="text-[15px] leading-[25px] text-slate-500 mb-8">
               {subtitle}
             </p>
 
             <Link
               href={ctaHref}
-              className="inline-flex items-center justify-center bg-brand-teal-fill hover:bg-brand-teal text-white font-['Poppins',sans-serif] font-semibold text-[14px] px-7 py-3 rounded-[24px] transition-all duration-200 shadow-md shadow-[var(--color-brand-teal-hover)]/20 hover:scale-[1.02]"
+              className="inline-flex items-center justify-center bg-brand-teal-fill hover:bg-brand-teal text-white font-semibold text-[14px] px-7 py-3 rounded-[24px] transition-all duration-200 shadow-md shadow-[var(--color-brand-teal-hover)]/20 hover:scale-[1.02]"
             >
               {ctaText}
             </Link>

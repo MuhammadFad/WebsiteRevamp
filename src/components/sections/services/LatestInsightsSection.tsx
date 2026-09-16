@@ -42,21 +42,21 @@ const InsightCard: React.FC<{ insight: InsightItem; index: number }> = ({ insigh
         <div className="p-7">
           {/* Badge & Date */}
           <div className="flex items-center justify-between gap-2 mb-4">
-            <span className="bg-brand-teal-fill text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-[12px]">
+            <span className="bg-brand-teal-fill text-white font-jakarta font-bold text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-[12px]">
               {insight.badge}
             </span>
-            <span className="font-['Inter',sans-serif] text-[13px] text-slate-400 font-normal">
+            <span className="text-[13px] text-slate-400 font-normal">
               {insight.date}
             </span>
           </div>
 
           {/* Title */}
-          <h3 className="font-['Poppins',sans-serif] font-semibold text-[18px] leading-[26px] text-brand-card mb-3 group-hover:text-brand-teal-hover transition-colors line-clamp-2">
+          <h3 className="font-semibold text-[18px] leading-[26px] text-brand-card mb-3 group-hover:text-brand-teal-hover transition-colors line-clamp-2">
             {insight.title}
           </h3>
 
           {/* Description / Excerpt */}
-          <p className="font-['Poppins',sans-serif] text-[14px] leading-[22px] text-slate-600 line-clamp-3 mb-4">
+          <p className="text-[14px] leading-[22px] text-slate-600 line-clamp-3 mb-4">
             {insight.excerpt}
           </p>
         </div>
@@ -71,7 +71,7 @@ const InsightCard: React.FC<{ insight: InsightItem; index: number }> = ({ insigh
               .map((n) => n[0])
               .join('')}
           </div>
-          <span className="font-['Inter',sans-serif] font-semibold text-[13px] text-brand-card">
+          <span className="font-semibold text-[13px] text-brand-card">
             {authorName}
           </span>
         </div>
@@ -79,7 +79,7 @@ const InsightCard: React.FC<{ insight: InsightItem; index: number }> = ({ insigh
         {/* Bottom link: Read More › (var(--color-brand-teal-hover), Plus Jakarta Sans 700, 14px) */}
         <Link
           href={insight.transmissionHref}
-          className="inline-flex items-center gap-1 font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[14px] text-brand-teal-hover hover:text-brand-teal hover:underline transition-colors"
+          className="inline-flex items-center gap-1 font-jakarta font-bold text-[14px] text-brand-teal-hover hover:text-brand-teal hover:underline transition-colors"
         >
           <span>Read more</span>
           <span className="text-base group-hover:translate-x-1 transition-transform">›</span>
@@ -101,7 +101,7 @@ export const LatestInsightsSection: React.FC = () => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="mb-12"
         >
-          <h2 className="font-['Poppins',sans-serif] font-bold text-[28px] sm:text-[32px] leading-[48px] text-brand-card tracking-tight">
+          <h2 className="font-bold text-[28px] sm:text-[32px] leading-[48px] text-brand-card tracking-tight">
             Latest Insights
           </h2>
         </motion.div>

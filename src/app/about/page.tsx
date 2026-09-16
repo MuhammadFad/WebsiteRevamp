@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Lightbulb, ShieldCheck, Star, Target, Users } from "lucide-react";
 import PageHero from "@/components/sections/PageHero";
 import StatFeature from "@/components/sections/StatFeature";
 import ValuesGrid from "@/components/sections/ValuesGrid";
@@ -11,6 +10,14 @@ import TeamGrid from "@/components/sections/TeamGrid";
 import InsightsGrid from "@/components/sections/InsightsGrid";
 import Testimonials from "@/components/sections/Testimonials";
 import UpdatedContactBanner from "@/components/sections/UpdatedContactBanner";
+import { getIcon } from "@/lib/icons";
+import {
+  ABOUT_INSIGHTS,
+  ABOUT_VALUES,
+  DOCTRINE_VALUES,
+  ENGINEERING_STANDARDS,
+  LEADERSHIP,
+} from "@/data/aboutData";
 
 export const metadata: Metadata = {
   title: "About Us — Story, Mission & Leadership | DevLogix",
@@ -18,99 +25,11 @@ export const metadata: Metadata = {
     "Meet the team engineering sovereign, high-performance digital platforms for the modern enterprise at DevLogix.",
 };
 
-const VALUES = [
-  {
-    title: "Innovation",
-    icon: Lightbulb,
-    description:
-      "Pioneering AI-native and sovereign engineering solutions that redefine what is possible.",
-  },
-  {
-    title: "Integrity",
-    icon: ShieldCheck,
-    description:
-      "No vaporware, no marketing assertions. We compile, execute, and verify systems directly.",
-  },
-  {
-    title: "Excellence",
-    icon: Star,
-    description:
-      "Strict adherence to deterministic, high-efficiency compute agreements and delivery standards.",
-  },
-  {
-    title: "Collaboration",
-    icon: Users,
-    description:
-      "Building deep, long-term partnerships with clients to co-create transformative solutions.",
-  },
-];
-
-const DOCTRINE_VALUES = [
-  {
-    icon: ShieldCheck,
-    title: "Integrity",
-    description:
-      "No vaporware, no marketing assertions. We compile, execute, and verify systems directly.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Innovation",
-    description:
-      "Developing on-premise execution nodes optimized for physical data sovereignty.",
-  },
-  {
-    icon: Target,
-    title: "Dedication",
-    description: "Strict adherence to deterministic, high-efficiency compute agreements.",
-  },
-];
-
-const STANDARDS = [
-  {
-    title: "Sovereign First",
-    description: "Complete, in-house system control over critical deployment pipelines.",
-  },
-  {
-    title: "Engineering-Led Coding",
-    description: "Prioritizing strict system telemetry, security, and protocol over quick patches.",
-  },
-  {
-    title: "Good Through Intelligence",
-    description:
-      "Deploying high-performance consolidated monoliths optimized for sub-millisecond API execution.",
-  },
-];
-
-const LEADERSHIP = [
-  { name: "Muhammad Ali Qamar", role: "Founder & CEO" },
-  { name: "Lt. Col. James Harken (Ret.)", role: "VP Security Architecture" },
-  { name: "Dr. Priya Deshmukh", role: "Head of Product" },
-  { name: "Dr. Yuna Kim", role: "Chief AI Officer" },
-];
-
-const INSIGHTS = [
-  {
-    title: "Mapping the Next Wave of AI-Powered Business Intelligence",
-    excerpt:
-      "How organisations can harness data, insight, and decisions to stay ahead of rapidly shifting market conditions.",
-    tag: "Whitepaper",
-    href: "/#insights",
-  },
-  {
-    title: "Modernising Legacy Systems Is Not a Technology Decision",
-    excerpt:
-      "This brief reframes modernisation as a business portfolio decision: where to sequence investment and how to measure success.",
-    tag: "Executive Brief",
-    href: "/#insights",
-  },
-  {
-    title: "Critical Developments That Leaders Need to Tackle Now",
-    excerpt:
-      "The challenges facing top teams are significant, and precisely the ones well-funded programmes continue failing to address.",
-    tag: "Case Study",
-    href: "/#insights",
-  },
-];
+// Data lives in src/data/aboutData.ts as plain, serializable content (icons are string keys —
+// see src/lib/icons.ts) so it can later be swapped for a real CMS/API fetch without touching
+// this page's structure. Resolving icon keys to components happens here, at the page boundary.
+const values = ABOUT_VALUES.map((value) => ({ ...value, icon: getIcon(value.icon) }));
+const doctrineValues = DOCTRINE_VALUES.map((value) => ({ ...value, icon: getIcon(value.icon) }));
 
 export default function AboutPage() {
   return (
@@ -139,7 +58,7 @@ export default function AboutPage() {
         gradient
       />
 
-      <ValuesGrid kicker="Our Values" heading="What Drives Us Forward" items={VALUES} />
+      <ValuesGrid kicker="Our Values" heading="What Drives Us Forward" items={values} />
 
       <FounderQuote
         kicker="From the Desk of the Founder"
@@ -152,10 +71,10 @@ export default function AboutPage() {
       <NumberedFeatures
         kicker="Discover More"
         heading="DevLogix Engineering Standards"
-        items={STANDARDS}
+        items={ENGINEERING_STANDARDS}
       />
 
-      <DoctrineStatement lines={["The", "DevLogix", "Doctrine."]} values={DOCTRINE_VALUES} />
+      <DoctrineStatement lines={["The", "DevLogix", "Doctrine."]} values={doctrineValues} />
 
       <ImpactSection
         kicker="Sustainability & Impact"
@@ -172,7 +91,7 @@ export default function AboutPage() {
         members={LEADERSHIP}
       />
 
-      <InsightsGrid kicker="Resources" heading="Featured Insights" items={INSIGHTS} />
+      <InsightsGrid kicker="Resources" heading="Featured Insights" items={ABOUT_INSIGHTS} />
 
       <Testimonials />
 

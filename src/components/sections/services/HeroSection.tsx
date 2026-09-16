@@ -10,7 +10,7 @@ export const HeroSection: React.FC = () => {
     <section className="relative w-full bg-brand-card overflow-hidden">
       {/* Ambient background glow */}
       <div className="absolute top-1/4 right-1/4 w-[650px] h-[650px] bg-brand-teal-hover/10 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-[450px] h-[450px] bg-[#3B82F6]/10 rounded-full blur-[110px] pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-[450px] h-[450px] bg-accent-blue/10 rounded-full blur-[110px] pointer-events-none" />
 
       <div className="relative w-full max-w-[1440px] 2xl:max-w-[1600px] mx-auto min-h-[640px] flex flex-col lg:flex-row items-center justify-between px-6 sm:px-8 lg:px-12 pt-[100px] pb-16 lg:pt-[110px] lg:pb-14">
         {/* Left Side: Headline stack (625px container) */}
@@ -24,10 +24,10 @@ export const HeroSection: React.FC = () => {
               precursor element — kicker/tag/breadcrumb — removed entirely. This hero previously
               had both a "Home > Services" breadcrumb and an "OUR SERVICES" eyebrow above the h1. */}
           <div className="flex flex-col items-start gap-5">
-            <h1 className="text-slate-50 font-semibold text-4xl sm:text-5xl lg:text-[52px] leading-[1.15] lg:leading-[60px] tracking-tight font-['Poppins',sans-serif]">
+            <h1 className="text-slate-50 font-semibold text-4xl sm:text-5xl lg:text-[52px] leading-[1.15] lg:leading-[60px] tracking-tight">
               Technology That Drives Results
             </h1>
-            <p className="text-slate-400 text-[17px] leading-[28px] font-normal font-['Poppins',sans-serif] max-w-[570px]">
+            <p className="text-slate-400 text-[17px] leading-[28px] font-normal max-w-[570px]">
               We don&apos;t just build software; we build the future of your business. Our services
               are designed to bridge the gap between your current state and your vision for
               tomorrow.
@@ -38,7 +38,7 @@ export const HeroSection: React.FC = () => {
           <div className="flex items-center gap-4 pt-1">
             <Link
               href="/contact"
-              className="h-[41px] px-6 bg-brand-teal-dark hover:bg-brand-teal-fill text-white rounded-[20px] text-[14px] font-semibold font-['Inter',sans-serif] flex items-center justify-center transition-all duration-200 shadow-[0_4px_16px_rgba(24,118,102,0.3)] hover:scale-[1.02]"
+              className="h-[41px] px-6 bg-brand-teal-dark hover:bg-brand-teal-fill text-white rounded-[20px] text-[14px] font-semibold flex items-center justify-center transition-all duration-200 shadow-[0_4px_16px_rgba(24,118,102,0.3)] hover:scale-[1.02]"
             >
               Get a Free Consultation
             </Link>
@@ -95,7 +95,7 @@ export const HeroSection: React.FC = () => {
             <div className="absolute top-1/2 right-8 sm:right-14 -translate-y-1/2 z-20 pointer-events-none">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-brand-teal-fill animate-pulse shadow-[0_0_10px_var(--color-brand-teal-hover)]" />
-                <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm sm:text-base lg:text-lg tracking-[0.14em] text-brand-teal-hover uppercase drop-shadow-[0_0_12px_rgba(20,184,166,0.85)]">
+                <span className="font-jakarta font-bold text-sm sm:text-base lg:text-lg tracking-[0.14em] text-brand-teal-hover uppercase drop-shadow-[0_0_12px_rgba(20,184,166,0.85)]">
                   GLOBAL TECH SOLUTIONS
                 </span>
               </div>

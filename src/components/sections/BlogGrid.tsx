@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { Section } from "@/components/layout/Section";
-import { Container } from "@/components/layout/Container";
-import { Input } from "@/components/ui/Input";
-import { Select } from "@/components/ui/Select";
+import Container from "@/components/ui/Container";
+import { FilterInput } from "@/components/ui/FilterInput";
+import { FilterSelect } from "@/components/ui/FilterSelect";
 import Button from "@/components/ui/Button";
 import { Pagination } from "@/components/ui/Pagination";
 import BlogCard from "@/components/cards/BlogCard";
@@ -64,7 +64,7 @@ export function BlogGrid({
           className="mt-6 flex flex-col gap-3 rounded-lg border border-slate-200 bg-white p-3 md:flex-row md:items-center"
         >
           <div className="md:flex-1">
-            <Input
+            <FilterInput
               placeholder="Filter by title or keyword..."
               value={query}
               onChange={(e) => {
@@ -75,7 +75,7 @@ export function BlogGrid({
           </div>
 
           <div className="md:w-44">
-            <Select
+            <FilterSelect
               aria-label="Filter by industry"
               placeholder="Industries"
               options={industries.map((name) => ({ value: name, label: name }))}
@@ -87,7 +87,7 @@ export function BlogGrid({
           </div>
 
           <div className="md:w-44">
-            <Select
+            <FilterSelect
               aria-label="Filter by service"
               placeholder="Services"
               options={services.map((name) => ({ value: name, label: name }))}

@@ -77,10 +77,10 @@ export const CoreServicesSection: React.FC = () => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-16"
         >
-          <span className="font-['Poppins',sans-serif] font-bold text-[14px] text-brand-teal-hover tracking-widest uppercase block mb-2">
+          <span className="font-bold text-[14px] text-brand-teal-hover tracking-widest uppercase block mb-2">
             DISCOVER MORE
           </span>
-          <h2 className="font-['Poppins',sans-serif] font-semibold text-[32px] sm:text-[40px] text-brand-card tracking-tight">
+          <h2 className="font-semibold text-[32px] sm:text-[40px] text-brand-card tracking-tight">
             OUR CORE SERVICES
           </h2>
         </motion.div>
@@ -105,12 +105,12 @@ export const CoreServicesSection: React.FC = () => {
                 </div>
 
                 {/* Title (Poppins 600, 20px) */}
-                <h3 className="font-['Poppins',sans-serif] font-semibold text-[20px] text-brand-card mb-3 group-hover:text-brand-teal-hover transition-colors">
+                <h3 className="font-semibold text-[20px] text-brand-card mb-3 group-hover:text-brand-teal-hover transition-colors">
                   {service.title}
                 </h3>
 
                 {/* Description (14px, slate-600) */}
-                <p className="font-['Inter',sans-serif] text-[14px] leading-[22px] text-slate-600">
+                <p className="text-[14px] leading-[22px] text-slate-600">
                   {service.description}
                 </p>
               </div>
@@ -118,7 +118,7 @@ export const CoreServicesSection: React.FC = () => {
               {/* Footer link Learn more → (var(--color-brand-teal-hover), Inter 600, 14px) pointing to /services/[slug] */}
               <Link
                 href={`/services/${service.slug}`}
-                className="inline-flex items-center gap-1.5 font-['Inter',sans-serif] font-semibold text-[14px] text-brand-teal-hover hover:text-brand-teal transition-colors mt-6 pt-2"
+                className="inline-flex items-center gap-1.5 font-semibold text-[14px] text-brand-teal-hover hover:text-brand-teal transition-colors mt-6 pt-2"
               >
                 <span>Learn more</span>
                 <span className="text-base group-hover:translate-x-1 transition-transform">→</span>
@@ -145,12 +145,12 @@ export const CoreServicesSection: React.FC = () => {
                 </div>
 
                 {/* Title (Poppins 600, 20px) */}
-                <h3 className="font-['Poppins',sans-serif] font-semibold text-[20px] text-brand-card mb-3 group-hover:text-brand-teal-hover transition-colors">
+                <h3 className="font-semibold text-[20px] text-brand-card mb-3 group-hover:text-brand-teal-hover transition-colors">
                   {service.title}
                 </h3>
 
                 {/* Description (14px, slate-600) */}
-                <p className="font-['Inter',sans-serif] text-[14px] leading-[22px] text-slate-600">
+                <p className="text-[14px] leading-[22px] text-slate-600">
                   {service.description}
                 </p>
               </div>
@@ -158,7 +158,7 @@ export const CoreServicesSection: React.FC = () => {
               {/* Footer link Learn more → (var(--color-brand-teal-hover), Inter 600, 14px) pointing to /services/[slug] */}
               <Link
                 href={`/services/${service.slug}`}
-                className="inline-flex items-center gap-1.5 font-['Inter',sans-serif] font-semibold text-[14px] text-brand-teal-hover hover:text-brand-teal transition-colors mt-6 pt-2"
+                className="inline-flex items-center gap-1.5 font-semibold text-[14px] text-brand-teal-hover hover:text-brand-teal transition-colors mt-6 pt-2"
               >
                 <span>Learn more</span>
                 <span className="text-base group-hover:translate-x-1 transition-transform">→</span>

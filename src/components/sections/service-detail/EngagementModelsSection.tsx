@@ -30,17 +30,17 @@ export const EngagementModelsSection: React.FC<EngagementModelsSectionProps> = (
           className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 sm:mb-14"
         >
           <div>
-            <span className="font-['Poppins',sans-serif] font-semibold text-[13px] uppercase tracking-[1.5px] text-brand-teal-hover block mb-2">
+            <span className="font-semibold text-[13px] uppercase tracking-[1.5px] text-brand-teal-hover block mb-2">
               {eyebrow}
             </span>
-            <h2 className="font-['Poppins',sans-serif] font-bold text-3xl sm:text-[36px] lg:text-[40px] leading-tight text-brand-card">
+            <h2 className="font-bold text-3xl sm:text-[36px] lg:text-[40px] leading-tight text-brand-card">
               {title}
             </h2>
           </div>
 
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center bg-brand-teal-fill hover:bg-brand-teal text-white font-['Poppins',sans-serif] font-semibold text-[14px] px-8 py-3 rounded-full transition-all duration-200 shadow-md shadow-[var(--color-brand-teal-hover)]/20 self-start sm:self-auto shrink-0 hover:scale-[1.02]"
+            className="inline-flex items-center justify-center bg-brand-teal-fill hover:bg-brand-teal text-white font-semibold text-[14px] px-8 py-3 rounded-full transition-all duration-200 shadow-md shadow-[var(--color-brand-teal-hover)]/20 self-start sm:self-auto shrink-0 hover:scale-[1.02]"
           >
             {ctaText}
           </Link>
@@ -62,31 +62,31 @@ export const EngagementModelsSection: React.FC<EngagementModelsSectionProps> = (
               <div>
                 {/* Top Row: Index & Badge */}
                 <div className="flex items-center justify-between gap-3 mb-5">
-                  <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[24px] sm:text-[28px] text-brand-card leading-none">
+                  <span className="font-jakarta font-bold text-[24px] sm:text-[28px] text-brand-card leading-none">
                     0{index + 1}
                   </span>
-                  <span className="shrink-0 whitespace-nowrap font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[11px] uppercase tracking-wider text-white bg-brand-teal-fill px-3.5 py-1 rounded-[16px]">
+                  <span className="shrink-0 whitespace-nowrap font-jakarta font-bold text-[11px] uppercase tracking-wider text-white bg-brand-teal-fill px-3.5 py-1 rounded-[16px]">
                     {model.badge}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="font-['Poppins',sans-serif] font-bold text-[20px] sm:text-[22px] leading-snug text-brand-card mb-3">
+                <h3 className="font-bold text-[20px] sm:text-[22px] leading-snug text-brand-card mb-3">
                   {model.title}
                 </h3>
 
                 {/* Description */}
-                <p className="font-['Inter',sans-serif] text-[14px] leading-[22px] sm:leading-[24px] text-slate-500 mb-6">
+                <p className="text-[14px] leading-[22px] sm:leading-[24px] text-slate-500 mb-6">
                   {model.description}
                 </p>
               </div>
 
               {/* Best For Section */}
               <div className="pt-4 border-t border-slate-100 sm:border-0 flex flex-col gap-1 mt-auto">
-                <span className="font-['Inter',sans-serif] text-[12px] font-bold uppercase text-brand-teal-hover tracking-[1px]">
+                <span className="text-[12px] font-bold uppercase text-brand-teal-hover tracking-[1px]">
                   BEST FOR:
                 </span>
-                <p className="font-['Inter',sans-serif] text-[13px] sm:text-[14px] leading-[20px] font-medium text-brand-card">
+                <p className="text-[13px] sm:text-[14px] leading-[20px] font-medium text-brand-card">
                   {model.bestFor}
                 </p>
               </div>

@@ -16,10 +16,10 @@ export const StatsSection: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="flex flex-col items-center text-center px-4"
           >
-            <span className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-5xl lg:text-[64px] leading-none text-white tracking-tight">
+            <span className="font-jakarta font-extrabold text-5xl lg:text-[64px] leading-none text-white tracking-tight">
               12+
             </span>
-            <span className="font-['Inter',sans-serif] font-medium text-[12px] uppercase text-slate-500 tracking-wider mt-2.5">
+            <span className="font-medium text-[12px] uppercase text-slate-500 tracking-wider mt-2.5">
               INDUSTRIES VERTICALIZED
             </span>
           </motion.div>
@@ -32,10 +32,10 @@ export const StatsSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex flex-col items-center text-center px-4 relative after:hidden md:after:block after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-20 after:bg-slate-700 before:hidden md:before:block before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[1px] before:h-20 before:bg-slate-700"
           >
-            <span className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-5xl lg:text-[64px] leading-none text-white tracking-tight">
+            <span className="font-jakarta font-extrabold text-5xl lg:text-[64px] leading-none text-white tracking-tight">
               7+
             </span>
-            <span className="font-['Inter',sans-serif] font-medium text-[12px] uppercase text-slate-500 tracking-wider mt-2.5">
+            <span className="font-medium text-[12px] uppercase text-slate-500 tracking-wider mt-2.5">
               REGIONAL HUBS
             </span>
           </motion.div>
@@ -48,10 +48,10 @@ export const StatsSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex flex-col items-center text-center px-4 relative md:after:block after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-20 after:bg-slate-700"
           >
-            <span className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-5xl lg:text-[64px] leading-none text-white tracking-tight">
+            <span className="font-jakarta font-extrabold text-5xl lg:text-[64px] leading-none text-white tracking-tight">
               15+
             </span>
-            <span className="font-['Inter',sans-serif] font-medium text-[12px] uppercase text-slate-500 tracking-wider mt-2.5">
+            <span className="font-medium text-[12px] uppercase text-slate-500 tracking-wider mt-2.5">
               INDUSTRY EXPERTS
             </span>
           </motion.div>
@@ -64,10 +64,10 @@ export const StatsSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col items-center text-center px-4"
           >
-            <span className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-5xl lg:text-[64px] leading-none text-white tracking-tight">
+            <span className="font-jakarta font-extrabold text-5xl lg:text-[64px] leading-none text-white tracking-tight">
               50+
             </span>
-            <span className="font-['Inter',sans-serif] font-medium text-[12px] uppercase text-slate-500 tracking-wider mt-2.5">
+            <span className="font-medium text-[12px] uppercase text-slate-500 tracking-wider mt-2.5">
               PROJECTS DELIVERED
             </span>
           </motion.div>

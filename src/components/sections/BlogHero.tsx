@@ -1,6 +1,6 @@
 import { Search } from "lucide-react";
 import { Section } from "@/components/layout/Section";
-import { Container } from "@/components/layout/Container";
+import Container from "@/components/ui/Container";
 
 type Props = {
   label: string;

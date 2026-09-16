@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins } from "next/font/google";
+import { Plus_Jakarta_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -8,6 +8,20 @@ const poppins = Poppins({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+// HANDOFF-AMBIGUOUS: not in CLAUDE.md's documented type tokens (Poppins only), but 19 sites
+// across 12 section components consistently reference `font-['Plus_Jakarta_Sans']` for stat
+// numbers and uppercase kicker badges — a deliberate secondary display font from the Figma spec
+// that was never actually loaded, so it silently fell back to the browser default everywhere it
+// was used. Loading it properly (visual intent) rather than deleting the class (which would
+// silently collapse 19 intentional spots to Poppins) per CLAUDE.md's handoff-wins-on-visual-
+// intent rule. Exposed as the `font-jakarta` utility via --font-jakarta in globals.css.
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -28,7 +42,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b1221",
+  themeColor: "#0b1221", // mirrors --color-brand-navy — next/metadata's Viewport type requires a literal string here, can't reference a CSS custom property
 };
 
 // Baseline Organization/WebSite JSON-LD — standard technical SEO hygiene independent of the
@@ -51,7 +65,7 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${poppins.variable} h-full antialiased`}>
+    <html lang="en" className={`${poppins.variable} ${plusJakartaSans.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-brand-navy font-sans text-white">
         <script
           type="application/ld+json"

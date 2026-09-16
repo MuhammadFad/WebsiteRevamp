@@ -27,7 +27,9 @@ export default function FileUpload({
   const [fileName, setFileName] = useState<string | null>(null);
   const labelColor = tone === "dark" ? "text-slate-300" : "text-slate-700";
   const borderColor = tone === "dark" ? "border-white/20" : "border-slate-300";
-  const mutedColor = tone === "dark" ? "text-slate-400" : "text-slate-500";
+  // text-slate-600, not the "Body Mid" slate-500 token — slate-500 on white measures 4.48:1
+  // under axe, just under the 4.5:1 AA threshold; slate-600 clears it.
+  const mutedColor = tone === "dark" ? "text-slate-400" : "text-slate-600";
   const filledColor = tone === "dark" ? "text-white" : "text-slate-900";
 
   return (

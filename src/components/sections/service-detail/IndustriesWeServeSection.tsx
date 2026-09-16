@@ -41,10 +41,10 @@ const IndustryCardItem: React.FC<{ item: IndustryCard; index: number }> = ({ ite
 
       {/* Content Container (Title + Description, exact match to Image 1) */}
       <div className="absolute inset-0 p-6 flex flex-col justify-end text-white z-10 pointer-events-none">
-        <h3 className="font-['Poppins',sans-serif] font-bold text-[20px] leading-[26px] mb-2 group-hover:text-brand-teal-hover transition-colors">
+        <h3 className="font-bold text-[20px] leading-[26px] mb-2 group-hover:text-brand-teal-hover transition-colors">
           {item.title}
         </h3>
-        <p className="font-['Inter',sans-serif] font-normal text-[13px] leading-[20px] text-slate-200">
+        <p className="font-normal text-[13px] leading-[20px] text-slate-200">
           {item.description}
         </p>
       </div>
@@ -75,17 +75,17 @@ export const IndustriesWeServeSection: React.FC<IndustriesWeServeSectionProps> =
           className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12"
         >
           <div>
-            <span className="font-['Poppins',sans-serif] font-semibold text-[13px] uppercase tracking-wider text-brand-teal-hover block mb-2">
+            <span className="font-semibold text-[13px] uppercase tracking-wider text-brand-teal-hover block mb-2">
               {eyebrow}
             </span>
-            <h2 className="font-['Poppins',sans-serif] font-semibold text-3xl sm:text-[36px] lg:text-[40px] leading-tight text-brand-card max-w-[700px]">
+            <h2 className="font-semibold text-3xl sm:text-[36px] lg:text-[40px] leading-tight text-brand-card max-w-[700px]">
               {title}
             </h2>
           </div>
 
           <Link
             href="/industries"
-            className="inline-flex items-center justify-center border border-brand-teal-hover text-brand-teal-hover hover:bg-brand-teal-fill hover:text-white font-['Poppins',sans-serif] font-semibold text-[14px] px-6 py-2 rounded-full transition-all duration-200 self-start sm:self-auto shrink-0"
+            className="inline-flex items-center justify-center border border-brand-teal-hover text-brand-teal-hover hover:bg-brand-teal-fill hover:text-white font-semibold text-[14px] px-6 py-2 rounded-full transition-all duration-200 self-start sm:self-auto shrink-0"
           >
             Explore More
           </Link>

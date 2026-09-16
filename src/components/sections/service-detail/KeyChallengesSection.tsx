@@ -26,10 +26,10 @@ export const KeyChallengesSection: React.FC<KeyChallengesSectionProps> = ({
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="mb-14 lg:mb-16 max-w-[850px]"
         >
-          <span className="font-['Poppins',sans-serif] font-semibold text-[14px] uppercase tracking-[1.5px] text-brand-teal-hover block mb-3">
+          <span className="font-semibold text-[14px] uppercase tracking-[1.5px] text-brand-teal-hover block mb-3">
             {eyebrow}
           </span>
-          <h2 className="font-['Poppins',sans-serif] font-semibold text-3xl sm:text-[40px] leading-tight sm:leading-[52px] text-brand-card">
+          <h2 className="font-semibold text-3xl sm:text-[40px] leading-tight sm:leading-[52px] text-brand-card">
             {title}
           </h2>
         </motion.div>
@@ -48,13 +48,15 @@ export const KeyChallengesSection: React.FC<KeyChallengesSectionProps> = ({
                 className="w-full min-w-0 h-full min-h-[285px] bg-white border border-slate-200 rounded-[16px] p-6 sm:p-7 xl:p-8 flex flex-col justify-between shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl hover:-translate-y-1 hover:border-brand-teal-hover/40 transition-all duration-300 group"
               >
                 <div>
-                  {/* Alert/Accent Badges: #FB923C (Orange), #F43F5E (Rose) */}
+                  {/* Alert/Accent Badges: orange-50/400/200 and rose-50/500/200 exactly match the
+                      handoff's #FFF7ED/#FB923C/#FED7AA and #FFF1F2/#F43F5E/#FECDD3 spec — using
+                      the built-in Tailwind scale instead of repeating them as arbitrary hex. */}
                   <div className="mb-6">
                     <span
-                      className={`inline-block font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-[6px] ${
+                      className={`inline-block font-jakarta font-bold text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-[6px] ${
                         isOrange
-                          ? 'bg-[#FFF7ED] text-[#FB923C] border border-[#FED7AA]'
-                          : 'bg-[#FFF1F2] text-[#F43F5E] border border-[#FECDD3]'
+                          ? 'bg-orange-50 text-orange-400 border border-orange-200'
+                          : 'bg-rose-50 text-rose-500 border border-rose-200'
                       }`}
                     >
                       {card.badge}
@@ -62,13 +64,13 @@ export const KeyChallengesSection: React.FC<KeyChallengesSectionProps> = ({
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-['Poppins',sans-serif] font-semibold text-[18px] leading-[26px] text-brand-card mb-3 group-hover:text-brand-teal-hover transition-colors">
+                  <h3 className="font-semibold text-[18px] leading-[26px] text-brand-card mb-3 group-hover:text-brand-teal-hover transition-colors">
                     {card.title}
                   </h3>
                 </div>
 
                 {/* Description */}
-                <p className="font-['Inter',sans-serif] text-[13px] leading-[21px] text-slate-600 mt-auto">
+                <p className="text-[13px] leading-[21px] text-slate-600 mt-auto">
                   {card.description}
                 </p>
               </motion.div>

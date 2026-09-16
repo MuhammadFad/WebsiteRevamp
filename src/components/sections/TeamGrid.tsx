@@ -33,7 +33,12 @@ export default function TeamGrid({ kicker, heading, members }: TeamGridProps) {
           {/* Percentage-based widths (not a fixed px size) so a card always peeks past the
               edge as a scroll hint — matching the Core Services carousel pattern — instead of
               exactly 4 fixed-width cards fitting flush with nothing implying scroll. */}
-          <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div
+            role="region"
+            aria-label={heading}
+            tabIndex={0}
+            className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
+          >
             {members.map((member) => (
               <div
                 key={member.name}

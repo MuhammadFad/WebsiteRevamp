@@ -22,7 +22,7 @@ export const IconBox: React.FC<IconBoxProps> = ({
   return (
     <div
       className={cn(
-        "inline-flex items-center justify-center bg-[#EAFBF1] border border-brand-teal/10 flex-shrink-0 transition-transform duration-200 hover:scale-105",
+        "inline-flex items-center justify-center bg-brand-icon-tint border border-brand-teal/10 flex-shrink-0 transition-transform duration-200 hover:scale-105",
         sizeStyles[size],
         className
       )}

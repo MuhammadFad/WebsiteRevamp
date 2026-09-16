@@ -46,7 +46,7 @@ export const AiHeroSection: React.FC<AiHeroSectionProps> = ({ data }) => {
             }}
           />
           <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-teal-hover/10 rounded-full blur-[140px] pointer-events-none" />
-          <div className="absolute bottom-10 right-1/4 w-[400px] h-[400px] bg-[#3B82F6]/10 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute bottom-10 right-1/4 w-[400px] h-[400px] bg-accent-blue/10 rounded-full blur-[120px] pointer-events-none" />
         </div>
       ) : (
         <div className="absolute inset-0 z-0">
@@ -80,18 +80,20 @@ export const AiHeroSection: React.FC<AiHeroSectionProps> = ({ data }) => {
             {/* Pill Tag */}
             <div className="inline-flex items-center gap-2 bg-[rgba(20,184,166,0.1)] border border-brand-teal-hover/40 px-3.5 py-1 rounded-full mb-6 backdrop-blur-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-teal-fill animate-pulse" />
-              <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[11px] uppercase tracking-[1px] text-brand-teal-hover">
+              <span className="font-jakarta font-bold text-[11px] uppercase tracking-[1px] text-brand-teal-hover">
                 {badge}
               </span>
             </div>
 
-            {/* Heading: (Poppins 700, 52px, line-height 60px, #FFFFFF) */}
-            <h1 className="font-['Poppins',sans-serif] font-bold text-4xl sm:text-5xl lg:text-[52px] leading-[1.15] lg:leading-[60px] text-white tracking-tight mb-6">
+            {/* Heading: (Poppins 700, 52px, line-height 60px, #FFFFFF) — font-sans (Poppins) is
+                already the site default from layout.tsx, no need to redeclare it here */}
+            <h1 className="font-bold text-4xl sm:text-5xl lg:text-[52px] leading-[1.15] lg:leading-[60px] text-white tracking-tight mb-6">
               {heading}
             </h1>
 
-            {/* Paragraph: (Poppins 400, 18px, line-height 28px) */}
-            <p className="font-['Poppins',sans-serif] font-normal text-[16px] lg:text-[18px] leading-[28px] text-[#BEC9D7] mb-9 w-full max-w-2xl">
+            {/* Paragraph: (Poppins 400, 18px, line-height 28px) — text-slate-300 is CLAUDE.md's
+                documented "Muted" text-on-dark token, closest match to the handoff's #BEC9D7 */}
+            <p className="font-normal text-[16px] lg:text-[18px] leading-[28px] text-slate-300 mb-9 w-full max-w-2xl">
               {subtitle}
             </p>
 
@@ -99,7 +101,7 @@ export const AiHeroSection: React.FC<AiHeroSectionProps> = ({ data }) => {
             <div>
               <Link
                 href={ctaHref}
-                className="inline-flex items-center justify-center bg-brand-teal-fill hover:bg-brand-teal text-white font-['Poppins',sans-serif] font-semibold text-[14px] px-[24px] py-[12px] rounded-[24px] transition-all duration-200 shadow-lg shadow-[var(--color-brand-teal-hover)]/30 hover:scale-[1.02]"
+                className="inline-flex items-center justify-center bg-brand-teal-fill hover:bg-brand-teal text-white font-semibold text-[14px] px-[24px] py-[12px] rounded-[24px] transition-all duration-200 shadow-lg shadow-[var(--color-brand-teal-hover)]/30 hover:scale-[1.02]"
               >
                 {ctaText}
               </Link>
@@ -139,7 +141,7 @@ export const AiHeroSection: React.FC<AiHeroSectionProps> = ({ data }) => {
                     <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
                       <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-navy/80 border border-brand-teal-hover/60 backdrop-blur-md shadow-md">
                         <span className="w-1.5 h-1.5 rounded-full bg-brand-teal-fill animate-pulse" />
-                        <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[11px] uppercase tracking-wider text-brand-teal-hover">
+                        <span className="font-jakarta font-bold text-[11px] uppercase tracking-wider text-brand-teal-hover">
                           {activeBadgeText}
                         </span>
                       </div>

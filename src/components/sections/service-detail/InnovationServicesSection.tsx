@@ -34,13 +34,13 @@ export const InnovationServicesSection: React.FC<InnovationServicesSectionProps>
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-12 max-w-[840px] mx-auto"
         >
-          <span className="font-['Poppins',sans-serif] font-semibold text-[14px] uppercase tracking-wider text-brand-teal-hover block mb-3">
+          <span className="font-semibold text-[14px] uppercase tracking-wider text-brand-teal-hover block mb-3">
             {eyebrow}
           </span>
-          <h2 className="font-['Poppins',sans-serif] font-semibold text-3xl sm:text-[40px] leading-tight sm:leading-[52px] text-brand-card mb-4">
+          <h2 className="font-semibold text-3xl sm:text-[40px] leading-tight sm:leading-[52px] text-brand-card mb-4">
             {title}
           </h2>
-          <p className="font-['Inter',sans-serif] text-[15px] sm:text-[16px] leading-[26px] text-slate-600">
+          <p className="text-[15px] sm:text-[16px] leading-[26px] text-slate-600">
             {subtitle}
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ export const InnovationServicesSection: React.FC<InnovationServicesSectionProps>
                   setActiveTabId(tab.id);
                   setActiveDot(0);
                 }}
-                className={`px-6 py-2.5 rounded-full font-['Inter',sans-serif] font-medium text-[14px] transition-all duration-200 cursor-pointer ${
+                className={`px-6 py-2.5 rounded-full font-medium text-[14px] transition-all duration-200 cursor-pointer ${
                   isActive
                     ? 'bg-brand-teal-fill text-white shadow-md shadow-[var(--color-brand-teal-hover)]/25'
                     : 'bg-slate-50 text-slate-600 hover:bg-slate-200 hover:text-brand-card'
@@ -88,10 +88,10 @@ export const InnovationServicesSection: React.FC<InnovationServicesSectionProps>
                   exit={{ opacity: 0, x: 15 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="font-['Poppins',sans-serif] font-semibold text-2xl sm:text-[32px] leading-tight text-brand-card mb-5">
+                  <h3 className="font-semibold text-2xl sm:text-[32px] leading-tight text-brand-card mb-5">
                     {activeTab.title}
                   </h3>
-                  <p className="font-['Inter',sans-serif] text-[15px] leading-[26px] text-slate-600 mb-8 w-full max-w-xl">
+                  <p className="text-[15px] leading-[26px] text-slate-600 mb-8 w-full max-w-xl">
                     {activeTab.description}
                   </p>
 
@@ -112,7 +112,7 @@ export const InnovationServicesSection: React.FC<InnovationServicesSectionProps>
                             d="M5 13l4 4L19 7"
                           />
                         </svg>
-                        <span className="font-['Inter',sans-serif] font-medium text-[14px] leading-[22px] text-brand-card">
+                        <span className="font-medium text-[14px] leading-[22px] text-brand-card">
                           {bullet}
                         </span>
                       </li>

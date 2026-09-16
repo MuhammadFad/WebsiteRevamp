@@ -9,6 +9,9 @@
  */
 @theme {
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  /* Secondary display font for stat numbers / uppercase kicker badges — see HANDOFF-AMBIGUOUS
+     note in layout.tsx. Generates the `font-jakarta` utility class. */
+  --font-jakarta: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 
   --color-brand-teal: #0d938c; /* Primary Teal — icons, borders, links/text on dark bg */
   --color-brand-teal-dark: #0a706b; /* header CTA hover; also safe teal text/links on light bg */
@@ -26,6 +29,14 @@
   --color-brand-teal-tint-light: #f0f9f9; /* success states only */
   --color-brand-teal-tint: #e0f5f4; /* success states only */
   --color-brand-teal-border: #d2eeed; /* success states only */
+  --color-brand-icon-tint: #eafbf1; /* IconBox background — distinct from the success tints above,
+    which are reserved for success states only; this is the shared icon-chip background used
+    across card components site-wide */
+
+  /* Accent colors: not part of the DevLogix Design System v1.0 palette above, but the same
+     decorative glow blue recurs identically across the hero/service visuals below, so it's
+     centralized here instead of repeated as inline hex in each component. */
+  --color-accent-blue: #3b82f6; /* decorative glow/dot accent — Hero, AI/Cloud/service hero visuals */
 
   --animate-fade-in-up: fade-in-up 0.5s ease-out both;
   --animate-marquee: marquee 40s linear infinite;

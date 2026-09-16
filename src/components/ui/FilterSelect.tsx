@@ -1,19 +1,21 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
-export interface SelectOption {
+export interface FilterSelectOption {
   value: string;
   label: string;
 }
 
-interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+interface FilterSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   label?: string;
-  options: SelectOption[];
+  options: FilterSelectOption[];
   placeholder?: string;
   error?: string;
 }
 
-export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
+/** Plain select for filter bars (e.g. BlogGrid's industry/service filters) — not a form field,
+ * see @/components/ui/form/Select for that. */
+export const FilterSelect = React.forwardRef<HTMLSelectElement, FilterSelectProps>(
   ({ label, options, placeholder = "Select an option", error, className, id, ...props }, ref) => {
     const selectId = id || (label ? label.toLowerCase().replace(/\s+/g, "-") : undefined);
 
@@ -57,4 +59,4 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   }
 );
 
-Select.displayName = "Select";
+FilterSelect.displayName = "FilterSelect";

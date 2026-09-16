@@ -14,8 +14,8 @@ export const CloudTopologyGraphic: React.FC<CloudTopologyGraphicProps> = ({
     <div className="relative w-full h-full flex flex-col justify-between p-4 sm:p-5 select-none overflow-hidden bg-brand-navy">
       {/* Ambient background glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] bg-[var(--color-brand-teal-hover)]/15 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute -top-10 -right-10 w-[200px] h-[200px] bg-[#0284C7]/15 rounded-full blur-[80px] pointer-events-none" />
-      <div className="absolute -bottom-10 -left-10 w-[200px] h-[200px] bg-[#0F766E]/20 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute -top-10 -right-10 w-[200px] h-[200px] bg-sky-600/15 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute -bottom-10 -left-10 w-[200px] h-[200px] bg-teal-700/20 rounded-full blur-[80px] pointer-events-none" />
 
       {/* Grid Pattern */}
       <div
@@ -31,9 +31,9 @@ export const CloudTopologyGraphic: React.FC<CloudTopologyGraphicProps> = ({
       <div className="relative z-10 flex items-center justify-between px-3.5 py-2 rounded-xl bg-brand-navy/80 border border-[var(--color-brand-teal-hover)]/30 backdrop-blur-md">
         <div className="flex items-center gap-2">
           <div className="flex gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-[#EF4444]/80" />
-            <span className="w-2 h-2 rounded-full bg-[#F59E0B]/80" />
-            <span className="w-2 h-2 rounded-full bg-[#10B981]/80" />
+            <span className="w-2 h-2 rounded-full bg-red-500/80" />
+            <span className="w-2 h-2 rounded-full bg-amber-500/80" />
+            <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
           </div>
           <span className="ml-2 font-mono text-[10px] font-semibold tracking-wider text-slate-400">
             CLOUD MESH // AWS • AZURE • GCP
@@ -60,7 +60,7 @@ export const CloudTopologyGraphic: React.FC<CloudTopologyGraphicProps> = ({
             {/* Gradients */}
             <linearGradient id="cloudPulseTeal" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="var(--color-brand-teal-hover)" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#0EA5E9" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="var(--color-sky-500)" stopOpacity="0.8" />
             </linearGradient>
             <linearGradient id="cloudNodeBg" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="var(--color-brand-navy)" />
@@ -143,7 +143,7 @@ export const CloudTopologyGraphic: React.FC<CloudTopologyGraphicProps> = ({
           {/* Animated Flowing Packet Particles */}
           <motion.circle
             r="3"
-            fill="#38BDF8"
+            fill="var(--color-sky-400)"
             filter="url(#glow)"
             animate={{
               cx: [80, 150, 220],
@@ -176,7 +176,7 @@ export const CloudTopologyGraphic: React.FC<CloudTopologyGraphicProps> = ({
           />
           <motion.circle
             r="3"
-            fill="#38BDF8"
+            fill="var(--color-sky-400)"
             filter="url(#glow)"
             animate={{
               cx: [220, 290, 360],
@@ -250,7 +250,7 @@ export const CloudTopologyGraphic: React.FC<CloudTopologyGraphicProps> = ({
               x="0"
               y="33"
               textAnchor="middle"
-              className="font-mono text-[8px] font-medium fill-[#38BDF8]"
+              className="font-mono text-[8px] font-medium fill-sky-400"
             >
               mTLS & KMS
             </text>
@@ -283,7 +283,7 @@ export const CloudTopologyGraphic: React.FC<CloudTopologyGraphicProps> = ({
               stroke="var(--color-brand-teal-hover)"
               strokeWidth="1.5"
             />
-            <circle r="3" fill="#38BDF8" />
+            <circle r="3" fill="var(--color-sky-400)" />
             <text
               x="0"
               y="-36"
@@ -331,7 +331,7 @@ export const CloudTopologyGraphic: React.FC<CloudTopologyGraphicProps> = ({
               x="0"
               y="33"
               textAnchor="middle"
-              className="font-mono text-[8px] font-medium fill-[#10B981]"
+              className="font-mono text-[8px] font-medium fill-emerald-500"
             >
               99.999% REPL
             </text>
@@ -366,7 +366,7 @@ export const CloudTopologyGraphic: React.FC<CloudTopologyGraphicProps> = ({
               x="0"
               y="33"
               textAnchor="middle"
-              className="font-mono text-[8px] font-medium fill-[#38BDF8]"
+              className="font-mono text-[8px] font-medium fill-sky-400"
             >
               DATADOG / APM
             </text>
@@ -389,7 +389,7 @@ export const CloudTopologyGraphic: React.FC<CloudTopologyGraphicProps> = ({
             <span className="block font-mono text-[8px] uppercase tracking-wider text-slate-400">
               Uptime SLA
             </span>
-            <span className="font-mono text-[12px] font-bold text-[#10B981]">
+            <span className="font-mono text-[12px] font-bold text-emerald-500">
               99.995%
             </span>
           </div>
@@ -397,7 +397,7 @@ export const CloudTopologyGraphic: React.FC<CloudTopologyGraphicProps> = ({
             <span className="block font-mono text-[8px] uppercase tracking-wider text-slate-400">
               Infra TCO
             </span>
-            <span className="font-mono text-[12px] font-bold text-[#38BDF8]">
+            <span className="font-mono text-[12px] font-bold text-sky-400">
               -38%
             </span>
           </div>
@@ -408,7 +408,7 @@ export const CloudTopologyGraphic: React.FC<CloudTopologyGraphicProps> = ({
           <div className="mt-2.5 flex justify-center">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-navy/90 border border-[var(--color-brand-teal-hover)]/50 backdrop-blur-md shadow-md">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-teal-hover)] animate-pulse" />
-              <span className="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[10px] uppercase tracking-wider text-[var(--color-brand-teal-hover)]">
+              <span className="font-jakarta font-bold text-[10px] uppercase tracking-wider text-[var(--color-brand-teal-hover)]">
                 {activeBadgeText}
               </span>
             </div>

@@ -2,13 +2,19 @@
 
 This repository contains the frontend for our website revamp.
 
+Picking up work here? See [CONTRIBUTING.md](CONTRIBUTING.md) for where things go (component
+folders, data-layer conventions, design tokens) and [CLAUDE.md](CLAUDE.md) for the design system,
+known handoff issues, and accessibility/SEO requirements.
+
 ## Tech Stack
 
 - Next.js (App Router) + React + TypeScript
 - Tailwind CSS v4 (design tokens in `src/app/globals.css`)
 - Framer Motion (scroll entrance animation)
-- Storybook + Vitest (component smoke tests + accessibility gate)
+- Storybook + Vitest (component smoke tests, accessibility gate, and plain unit tests)
 - Playwright (E2E: navigation, forms, responsive, accessibility)
+- GitHub Actions (`.github/workflows/ci.yml`) — lint, typecheck, build, unit tests, and E2E run
+  on every PR into `main`
 
 ## Getting started
 
@@ -36,13 +42,19 @@ endpoints pending a Sanity CMS integration.
 ## Testing
 
 ```bash
-npm run build        # production build — must pass
-npm run lint          # ESLint (Next + Storybook rules)
-npm test              # component smoke tests + a11y gate (Storybook stories via Vitest)
-npm run test:e2e       # Playwright: nav/links, contact + careers forms, responsive, axe-core
-npm run test:e2e:ui   # same, with the Playwright UI runner
-npm run storybook     # component gallery at http://localhost:6006
+npm run build          # production build — must pass
+npm run lint            # ESLint (Next + Storybook rules)
+npx tsc --noEmit        # typecheck
+npm test                # everything below except E2E (Storybook stories + plain unit tests)
+npm run test:storybook  # component smoke tests + a11y gate (Storybook stories via Vitest)
+npm run test:unit       # plain Vitest unit tests (src/**/*.test.ts) — validation, data helpers
+npm run test:e2e        # Playwright: nav/links, contact + careers forms, responsive, axe-core
+npm run test:e2e:ui     # same, with the Playwright UI runner
+npm run storybook       # component gallery at http://localhost:6006
 ```
+
+All of the above run on every pull request into `main` via `.github/workflows/ci.yml`, split
+across three parallel jobs (`lint-and-build`, `unit-tests`, `e2e-tests`).
 
 ## Reference material
 
