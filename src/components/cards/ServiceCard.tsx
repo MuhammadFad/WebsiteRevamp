@@ -21,23 +21,19 @@ export default function ServiceCard({
 }: ServiceCardProps) {
   return (
     <div
-      className={`group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 hover:border-[#A8E7D3] hover:shadow-[0_18px_40px_-20px_rgba(11,26,43,0.35)] ${className}`}
+      className={`group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition duration-300 hover:border-brand-teal/30 hover:shadow-[0_18px_40px_-20px_rgba(11,18,33,0.35)] ${className}`}
     >
       <div className="p-5 sm:p-6">
-        <h3 className="text-base font-semibold leading-snug text-[#0B1A2B] sm:text-lg">
-          {title}
-        </h3>
+        <h3 className="text-lg font-bold leading-snug text-slate-900 md:text-xl">{title}</h3>
 
         {description && (
-          <p className="mt-3 text-xs leading-relaxed text-[#5B6B7C] sm:text-sm">
-            {description}
-          </p>
+          <p className="mt-3 text-sm leading-relaxed text-slate-500">{description}</p>
         )}
 
         {href && (
           <Link
             href={href}
-            className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#16A97F] transition-colors hover:text-[#0B6B51]"
+            className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-brand-teal-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
           >
             {linkLabel}
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -45,7 +41,7 @@ export default function ServiceCard({
         )}
       </div>
 
-      <div className="relative mt-auto aspect-16/10 w-full bg-[#E6F6F0]">
+      <div className="relative mt-auto aspect-16/10 w-full bg-brand-teal/10">
         {image && (
           <Image
             src={image}

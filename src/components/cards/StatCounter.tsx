@@ -15,9 +15,9 @@ export default function StatCounter({
 
   return (
     <div className={`${alignClass} ${className}`}>
-      <p className="text-3xl font-bold text-[#3ECFA3] sm:text-4xl md:text-5xl">{value}</p>
+      <p className="text-3xl font-bold text-brand-teal-hover sm:text-4xl md:text-5xl">{value}</p>
 
-      <p className="mt-2 text-[10px] font-medium uppercase tracking-[0.14em] text-[#8695A4] sm:text-[11px] sm:tracking-[0.18em]">
+      <p className="mt-2 text-xs font-medium tracking-[0.18em] text-slate-400 uppercase">
         {label}
       </p>
     </div>

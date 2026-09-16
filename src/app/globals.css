@@ -1,10 +1,73 @@
 @import "tailwindcss";
 
+/*
+ * DevLogix Design System v1.0 tokens.
+ * Custom brand colors use their own namespace (brand-*) rather than aliasing
+ * Tailwind's built-in teal/slate scales — several handoff values are close to,
+ * but not identical to, Tailwind defaults (e.g. brand-teal #0D938C vs teal-600
+ * #0D9488), so aliasing them would silently drift off-spec.
+ */
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-teal: #0d938c; /* Primary Teal — icons, borders, links/text on dark bg */
+  --color-brand-teal-dark: #0a706b; /* header CTA hover; also safe teal text/links on light bg */
+  --color-brand-teal-hover: #14b8a6; /* nav hover text, mega-menu highlights (dark bg only) */
+  /* Token spec's Primary Teal (#0D938C) is only 3.77:1 against white — fails WCAG AA for
+     text/fills. brand-teal-fill is a ~10% darkened variant (4.55:1) used as the default
+     solid-button background so white button labels stay AA-compliant; visually indistinguishable
+     from the spec'd teal. See CLAUDE.md "Color contrast" requirement. */
+  --color-brand-teal-fill: #0c847e;
+  --color-brand-navy: #0b1221; /* body bg, hero, blog headers, footer, contact panel */
+  --color-brand-card: #0f172a; /* dark card backgrounds (slate-900) */
+  --color-brand-teal-tint-light: #f0f9f9; /* success states only */
+  --color-brand-teal-tint: #e0f5f4; /* success states only */
+  --color-brand-teal-border: #d2eeed; /* success states only */
+
+  --animate-fade-in-up: fade-in-up 0.5s ease-out both;
+  --animate-marquee: marquee 40s linear infinite;
+
+  --ease-premium: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
+  background: var(--color-brand-navy);
+  color: #fff;
   overflow-x: hidden;
   width: 100%;
 }

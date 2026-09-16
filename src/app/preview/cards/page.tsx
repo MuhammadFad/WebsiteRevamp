@@ -24,11 +24,17 @@ import StatCard from "@/components/cards/StatCard";
 import StatCounter from "@/components/cards/StatCounter";
 import TeamCard from "@/components/cards/TeamCard";
 import TestimonialCard from "@/components/cards/TestimonialCard";
+import type { Metadata } from "next";
 
+// Internal component gallery, not site content — kept out of search results.
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 export default function CardsPreviewPage() {
   return (
-    <main className="min-h-screen bg-[#F6F8F9] px-6 py-12">
+    // A <div>, not <main> — the root layout already provides the page's one <main> landmark.
+    <div className="min-h-screen bg-[#F6F8F9] px-6 py-12">
       <div className="mx-auto max-w-6xl space-y-14">
         <header>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#16A97F]">
@@ -512,6 +518,6 @@ export default function CardsPreviewPage() {
           </div>
         </section>
       </div>
-    </main>
+    </div>
   );
 }

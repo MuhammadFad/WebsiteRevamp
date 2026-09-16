@@ -1,54 +1,37 @@
-import React from "react";
-import { cn } from "@/lib/utils";
+import Kicker from "./Kicker";
 
-interface SectionHeadingProps {
-  label?: string;
+export type SectionHeadingProps = {
+  kicker?: string;
   title: string;
-  description?: string;
+  subtitle?: string;
+  tone?: "dark" | "light";
   align?: "left" | "center";
-  theme?: "light" | "dark";
   className?: string;
-}
+};
 
-export const SectionHeading: React.FC<SectionHeadingProps> = ({
-  label,
+export default function SectionHeading({
+  kicker,
   title,
-  description,
-  align = "center",
-  theme = "light",
-  className,
-}) => {
+  subtitle,
+  tone = "dark",
+  align = "left",
+  className = "",
+}: SectionHeadingProps) {
+  const alignClass = align === "center" ? "items-center text-center" : "items-start text-left";
+  const titleColor = tone === "dark" ? "text-white" : "text-slate-900";
+  const subtitleColor = tone === "dark" ? "text-slate-300" : "text-slate-500";
+
   return (
-    <div
-      className={cn(
-        "max-w-3xl mb-10 md:mb-14",
-        align === "center" ? "mx-auto text-center" : "text-left",
-        className
+    <div className={`flex flex-col gap-4 ${alignClass} ${className}`}>
+      {kicker && (
+        <Kicker tone={tone} className={align === "center" ? "justify-center" : ""}>
+          {kicker}
+        </Kicker>
       )}
-    >
-      {label && (
-        <span className="inline-block text-xs md:text-sm font-semibold tracking-wider text-emerald-600 uppercase mb-2">
-          {label}
-        </span>
-      )}
-      <h2
-        className={cn(
-          "text-2xl md:text-4xl font-bold tracking-tight",
-          theme === "dark" ? "text-white" : "text-slate-900"
-        )}
-      >
-        {title}
-      </h2>
-      {description && (
-        <p
-          className={cn(
-            "mt-3 text-base md:text-lg leading-relaxed",
-            theme === "dark" ? "text-slate-300" : "text-slate-600"
-          )}
-        >
-          {description}
-        </p>
+      <h2 className={`text-3xl font-bold tracking-tight md:text-4xl ${titleColor}`}>{title}</h2>
+      {subtitle && (
+        <p className={`max-w-2xl text-lg font-light md:text-xl ${subtitleColor}`}>{subtitle}</p>
       )}
     </div>
   );
-};
+}
