@@ -4,22 +4,18 @@ import { useState } from "react";
 import Button from "../ui/Button";
 import TextField from "../ui/form/TextField";
 import TextArea from "../ui/form/TextArea";
-import Select from "../ui/form/Select";
 import PillGroup from "../ui/form/PillGroup";
 import FileUpload from "../ui/form/FileUpload";
 import FormStatus from "../ui/form/FormStatus";
-import { useFormSubmit } from "@/lib/useFormSubmit";
+import { useCareersSubmit } from "@/lib/useCareersSubmit";
 
-const REGIONS = ["Pakistan", "Middle East", "North America", "Europe", "Asia Pacific", "Other"];
-
-// HANDOFF-AMBIGUOUS: the source form's "Position of Interest*" pills reused the client form's
-// service categories verbatim (Software Development / Digital Transformation / AI & Data /
-// UI/UX Design / Partnership) — not job roles (see content-contact.md flag #2). Replaced with
-// actual application tracks.
+// Real job-application tracks (the source Figma export reused the client form's service
+// categories here verbatim — not job roles — see last session's notes; this list was already
+// corrected).
 const POSITIONS = ["Software Engineering", "AI & Data", "Product Design", "Internship Program", "Other"];
 
 export default function CareersForm() {
-  const { status, fieldErrors, formError, handleSubmit } = useFormSubmit("/api/careers");
+  const { status, fieldErrors, formError, handleSubmit } = useCareersSubmit();
   const [position, setPosition] = useState("");
 
   if (status === "success") {
@@ -30,53 +26,40 @@ export default function CareersForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6">
-      <p className="text-sm font-light text-slate-400">
+      <p className="text-sm font-light text-slate-500">
         Share a few details and we&apos;ll connect you with the right team.
       </p>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <TextField
           label="Full name"
-          name="fullName"
-          tone="dark"
+          name="name"
           required
           placeholder="Jane Doe"
-          error={fieldErrors.fullName}
+          error={fieldErrors.name}
         />
-        {/* HANDOFF-AMBIGUOUS: relabeled from "Business email" — that reads oddly for an
-            individual candidate rather than a company contact (content-contact.md flag #3). */}
         <TextField
           label="Email address"
-          name="businessEmail"
+          name="email"
           type="email"
-          tone="dark"
           required
           placeholder="jane@email.com"
-          error={fieldErrors.businessEmail}
+          error={fieldErrors.email}
         />
       </div>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <TextField label="Phone" name="phone" type="tel" tone="dark" placeholder="PK (+92) 300 0000000" />
-        {/* HANDOFF-AMBIGUOUS: placeholder fixed from the leftover "Company" text to an actual
-            URL example (content-contact.md flag #1). */}
-        <TextField
-          label="LinkedIn / Portfolio URL"
-          name="portfolioUrl"
-          tone="dark"
-          placeholder="linkedin.com/in/janedoe"
-        />
-      </div>
-
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <Select label="Region" name="region" tone="dark" options={REGIONS} placeholder="Select Region" />
-        <FileUpload label="Resume / CV" name="resume" required error={fieldErrors.resume} />
-      </div>
+      <TextField
+        label="Phone"
+        name="phone"
+        type="tel"
+        required
+        placeholder="PK (+92) 300 0000000"
+        error={fieldErrors.phone}
+      />
 
       <PillGroup
         label="Position of Interest"
         name="position"
-        tone="dark"
         required
         options={POSITIONS}
         value={position}
@@ -84,19 +67,23 @@ export default function CareersForm() {
         error={fieldErrors.position}
       />
 
-      <TextArea
-        label="Tell us about yourself"
-        name="about"
-        tone="dark"
+      <FileUpload
+        label="Resume / CV"
+        name="resume"
         required
+        accept=".pdf,.doc,.docx"
+        error={fieldErrors.resume}
+      />
+
+      <TextArea
+        label="Cover Letter (optional)"
+        name="cover_letter"
         placeholder="A few sentences about your background and interest in this role"
-        error={fieldErrors.about}
+        error={fieldErrors.cover_letter}
       />
 
       {formError && <FormStatus status="error" message={formError} />}
 
-      {/* HANDOFF-AMBIGUOUS: "Initiate Alliance" is client/partnership copy, wrong tone for a
-          job application (content-contact.md flag under Submit button) — replaced. */}
       <Button type="submit" variant="teal" size="md" icon disabled={status === "submitting"}>
         {status === "submitting" ? "Submitting..." : "Submit Application"}
       </Button>

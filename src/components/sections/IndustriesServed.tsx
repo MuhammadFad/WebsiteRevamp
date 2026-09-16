@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import Container from "../ui/Container";
 import Reveal from "../ui/Reveal";
 
@@ -49,9 +48,6 @@ export default function IndustriesServed() {
                 }`}
               >
                 {industry}
-                {i === active && (
-                  <ArrowRight className="h-4 w-4 text-brand-teal-dark" aria-hidden />
-                )}
               </button>
             ))}
           </div>

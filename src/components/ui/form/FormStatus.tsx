@@ -12,7 +12,7 @@ export default function FormStatus({ status, message }: FormStatusProps) {
     return (
       <div
         role="status"
-        className="flex items-start gap-3 rounded-xl border border-[#D2EEED] bg-[#F0F9F9] p-4 text-sm text-slate-800"
+        className="flex items-start gap-3 rounded-xl border border-brand-teal-border bg-brand-teal-tint-light p-4 text-sm text-slate-800"
       >
         <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-teal-dark" aria-hidden />
         <p>{message}</p>

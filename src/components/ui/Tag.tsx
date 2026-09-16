@@ -14,9 +14,9 @@ export const Tag: React.FC<TagProps> = ({
   ...props
 }) => {
   const variantStyles = {
-    mint: "bg-[#EAFBF1] text-emerald-800 border border-emerald-200",
-    dark: "bg-slate-800 text-emerald-400 border border-slate-700",
-    outline: "bg-transparent text-emerald-600 border border-emerald-600",
+    mint: "bg-brand-teal/10 text-brand-teal-dark border border-brand-teal/20",
+    dark: "bg-slate-800 text-brand-teal-hover border border-slate-700",
+    outline: "bg-transparent text-brand-teal-dark border border-brand-teal-dark",
   };
 
   return (

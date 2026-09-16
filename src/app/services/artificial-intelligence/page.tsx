@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Navbar } from '@/components/sections/services/Navbar';
 import { AiHeroSection } from '@/components/sections/service-detail/AiHeroSection';
 import { KeyChallengesSection } from '@/components/sections/service-detail/KeyChallengesSection';
 import { InnovationServicesSection } from '@/components/sections/service-detail/InnovationServicesSection';
@@ -9,8 +8,7 @@ import { ToolsTechnologiesSection } from '@/components/sections/service-detail/T
 import { IndustriesWeServeSection } from '@/components/sections/service-detail/IndustriesWeServeSection';
 import { EngagementModelsSection } from '@/components/sections/service-detail/EngagementModelsSection';
 import { FaqSection } from '@/components/sections/service-detail/FaqSection';
-import { CtaBannerSection } from '@/components/sections/services/CtaBannerSection';
-import { FooterSection } from '@/components/sections/services/FooterSection';
+import UpdatedContactBanner from '@/components/sections/UpdatedContactBanner';
 
 export const metadata: Metadata = {
   title: 'Artificial Intelligence & Data Systems | DevLogix',
@@ -26,12 +24,8 @@ export const metadata: Metadata = {
 
 export default function ArtificialIntelligencePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#0F172A] text-white selection:bg-[#14B8A6] selection:text-white">
-      {/* 1. Global High-Fidelity Navbar */}
-      <Navbar />
-
-      <main className="flex-1 w-full">
-        {/* 2. Hero Section (height: 680px, Dark/Teal Ambient Background) */}
+    <>
+      {/* 2. Hero Section (height: 680px, Dark/Teal Ambient Background) */}
         <AiHeroSection />
 
         {/* 3. Key Challenges Section (#F5F7FA) */}
@@ -59,11 +53,7 @@ export default function ArtificialIntelligencePage() {
         <FaqSection />
 
         {/* 11. Re-used Bottom CTA Banner (#FFFFFF) */}
-        <CtaBannerSection />
-      </main>
-
-      {/* 12. Re-used 5-Column DevLogix Footer (#0B1221) */}
-      <FooterSection />
-    </div>
+        <UpdatedContactBanner />
+    </>
   );
 }

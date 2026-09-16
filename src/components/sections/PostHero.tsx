@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Section } from "@/components/layout/Section";
-import { Container } from "@/components/layout/Container";
-import { Breadcrumb } from "@/components/ui/Breadcrumb";
+import Container from "@/components/ui/Container";
 import { Tag } from "@/components/ui/Tag";
 import type { BlogPost } from "@/data/blogs";
 
@@ -9,28 +8,25 @@ type Props = {
   post: BlogPost;
 };
 
+// Personal instruction (standing sitewide rule): every non-homepage hero has its precursor
+// element removed — this used to show a breadcrumb and a category tag above the h1. The
+// breadcrumb is dropped outright; the category is still useful metadata for a post, so it
+// moves down into the author/date row instead of disappearing.
 export function PostHero({ post }: Props) {
   return (
     <Section bg="navy" className="py-10 md:py-14 lg:py-16">
       <Container>
-        <Breadcrumb
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Blog", href: "/blog" },
-            { label: post.category },
-          ]}
-        />
-
-        <Tag variant="mint" className="mt-6">
-          {post.category}
-        </Tag>
-
-        <h1 className="mt-4 max-w-4xl text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+        <h1 className="max-w-4xl text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
           {post.title}
         </h1>
 
-        {/* Author + date + read time */}
+        {/* Category + author + date + read time */}
         <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+          {/* variant="dark", not "mint" — "mint" is text-brand-teal-dark, meant for light
+              backgrounds only (2.84:1 on this section's bg-brand-navy, well under the 4.5:1 AA
+              threshold); "dark" exists in Tag.tsx specifically for this dark-hero context. */}
+          <Tag variant="dark">{post.category}</Tag>
+
           <div className="flex items-center gap-3">
             {post.author.avatar ? (
               <Image
@@ -41,7 +37,7 @@ export function PostHero({ post }: Props) {
                 className="h-10 w-10 rounded-full object-cover"
               />
             ) : (
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-600 text-xs font-semibold text-white">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-teal-dark text-xs font-semibold text-white">
                 {post.author.name[0]}
               </span>
             )}
@@ -59,7 +55,7 @@ export function PostHero({ post }: Props) {
         </div>
 
         {/* Hero picture — mint block until a real image is added */}
-        <div className="relative mt-8 aspect-16/9 w-full overflow-hidden rounded-xl bg-[#122B43] sm:aspect-21/9">
+        <div className="relative mt-8 aspect-16/9 w-full overflow-hidden rounded-xl bg-brand-card sm:aspect-21/9">
           {post.image && (
             <Image
               src={post.image}

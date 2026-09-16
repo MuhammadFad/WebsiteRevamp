@@ -16,6 +16,9 @@ const meta = {
   args: {
     label: "Resume / CV",
     name: "resume",
+    // The decorator above renders on brand-navy — pass tone="dark" so FileUpload's own
+    // colors match it (the real usage in CareersForm sits on a white card, tone="light").
+    tone: "dark",
   },
 } satisfies Meta<typeof FileUpload>;
 

@@ -1,6 +1,15 @@
 import { test, expect } from "@playwright/test";
 
-const PAGES = ["/", "/about", "/industries", "/contact", "/careers"];
+const PAGES = [
+  "/",
+  "/about",
+  "/industries",
+  "/services",
+  "/services/artificial-intelligence",
+  "/blog",
+  "/contact",
+  "/careers",
+];
 const VIEWPORTS = [
   { name: "mobile", width: 375, height: 800 },
   { name: "tablet", width: 768, height: 1024 },

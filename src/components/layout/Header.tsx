@@ -2,32 +2,60 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import Button from "../ui/Button";
 import Container from "../ui/Container";
 
-// HANDOFF-AMBIGUOUS: the Figma export lists 4 primary nav links (Services, Industries,
-// Insights, About) plus a Careers link, but no Services or Insights page was included in the
-// provided design material — only Home, About, Industries, and the two Contact variants were.
-// Rather than link to pages that don't exist (which would violate the SEO "no dead internal
-// links" requirement) or invent unbriefed page content, Services/Insights point to the
-// homepage sections that already cover that content.
-const NAV_LINKS = [
-  { label: "Services", href: "/#services" },
-  { label: "Industries", href: "/industries" },
-  { label: "Insights", href: "/#insights" },
+// HANDOFF-AMBIGUOUS (design review, 2026-09-16): Services and Blog/Insights now have real pages
+// (/services, /blog) — updated from last session's /#services and /#insights homepage-anchor
+// placeholders. The Services dropdown's sub-links mirror the 5 real standalone service routes.
+const NAV_LINKS: {
+  label: string;
+  href: string;
+  dropdown?: { label: string; href: string }[];
+  /** Footer row at the bottom of the dropdown panel, e.g. "Explore All Services". */
+  dropdownFooter?: string;
+}[] = [
+  {
+    label: "Services",
+    href: "/services",
+    dropdown: [
+      { label: "Artificial Intelligence", href: "/services/artificial-intelligence" },
+      { label: "Software Development", href: "/services/software-development" },
+      { label: "UI/UX Design", href: "/services/ui-ux-design" },
+      { label: "Cloud Solutions", href: "/services/cloud-solutions" },
+      { label: "Digital Transformation", href: "/services/digital-transformation" },
+    ],
+    dropdownFooter: "Explore All Services",
+  },
+  {
+    label: "Industries",
+    href: "/industries",
+    // All six link to the main /industries page for now — it's a single-page spotlight with
+    // a tab switcher per industry, not yet split into standalone industry routes.
+    dropdown: [
+      { label: "Hospitality", href: "/industries" },
+      { label: "Communications", href: "/industries" },
+      { label: "Banking & Financial Services", href: "/industries" },
+      { label: "Healthcare & Life Sciences", href: "/industries" },
+      { label: "Retail & CPG", href: "/industries" },
+      { label: "Public Sector", href: "/industries" },
+    ],
+  },
+  { label: "Insights", href: "/blog" },
   { label: "About", href: "/about" },
 ];
 
-// HANDOFF-AMBIGUOUS: the header CTA read "GET IN TOUCH" in the export while the homepage's
-// hero/contact-panel CTA ("Known Handoff Issue #1") reads "Partner with us" — three to four
-// divergent CTA labels appear across the page exports ("Get In Touch", "GET IN TOUCH",
-// "LET'S WORK TOGETHER"). Consolidated to two canonical labels used consistently everywhere:
-// "Partner with us" for the homepage's flagship hero + closing-CTA pair (the one shared
-// component per Issue #1), and "Get in Touch" for this global header CTA and every other
-// page's closing CTA band.
+// The header CTA + closing-CTA copy consolidation from last session still stands: "Get in Touch"
+// here and on every page's closing band, "Partner with us" reserved for the homepage's two
+// flagship placements.
+//
+// Design review (2026-09-16): the search icon is removed from the header everywhere — it had no
+// working search behind it on this static/content-driven site.
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  // Keyed by nav label so Services and Industries (both dropdowns) expand independently.
+  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(null);
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -48,15 +76,61 @@ export default function Header() {
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-sm font-medium text-slate-300 transition-colors duration-300 hover:text-brand-teal-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) =>
+            link.dropdown ? (
+              <div key={link.label} className="group relative py-2">
+                <Link
+                  href={link.href}
+                  className="flex items-center gap-1 text-sm font-medium text-slate-300 transition-colors duration-300 hover:text-brand-teal-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
+                >
+                  {link.label}
+                  <ChevronDown
+                    aria-hidden
+                    className="h-3.5 w-3.5 text-slate-400 transition-transform duration-200 group-hover:translate-y-0.5 group-hover:text-brand-teal-hover"
+                  />
+                </Link>
+
+                {/* Fix: without pointer-events-none, the invisible (opacity-0) panel still
+                    intercepted hover/clicks on whatever page content sat beneath it — hovering
+                    that dead zone would even trigger its own reveal via the shared .group
+                    ancestor, independent of ever touching the actual nav link. */}
+                <div className="absolute left-0 top-full w-64 translate-y-2 pt-2 opacity-0 pointer-events-none transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto">
+                  <div className="rounded-xl border border-white/10 bg-brand-card p-2.5 shadow-2xl backdrop-blur-xl">
+                    {link.dropdown.map((item) => (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-slate-200 transition-colors hover:bg-white/10 hover:text-brand-teal-hover"
+                      >
+                        <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-teal" />
+                        {item.label}
+                      </Link>
+                    ))}
+                    {link.dropdownFooter && (
+                      <>
+                        <div className="my-1.5 border-t border-white/10" />
+                        <Link
+                          href={link.href}
+                          className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold text-brand-teal-hover transition-colors hover:bg-brand-teal-hover/10"
+                        >
+                          {link.dropdownFooter}
+                          <span aria-hidden>&rarr;</span>
+                        </Link>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-sm font-medium text-slate-300 transition-colors duration-300 hover:text-brand-teal-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="hidden items-center gap-6 lg:flex">
@@ -84,21 +158,60 @@ export default function Header() {
       </Container>
 
       {mobileOpen && (
-        <div
-          id="mobile-nav"
-          className="border-t border-white/10 bg-brand-navy lg:hidden"
-        >
+        <div id="mobile-nav" className="border-t border-white/10 bg-brand-navy lg:hidden">
           <Container className="flex flex-col gap-1 py-6">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="rounded px-2 py-3 text-base font-medium text-slate-200 transition-colors hover:bg-white/5 hover:text-brand-teal-hover"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) =>
+              link.dropdown ? (
+                <div key={link.label}>
+                  <div className="flex items-center justify-between rounded px-2">
+                    <Link
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="flex-1 py-3 text-base font-medium text-slate-200 hover:text-brand-teal-hover"
+                    >
+                      {link.label}
+                    </Link>
+                    <button
+                      type="button"
+                      aria-label={`${openMobileSubmenu === link.label ? "Collapse" : "Expand"} ${link.label} submenu`}
+                      aria-expanded={openMobileSubmenu === link.label}
+                      onClick={() =>
+                        setOpenMobileSubmenu((v) => (v === link.label ? null : link.label))
+                      }
+                      className="p-3 text-slate-400"
+                    >
+                      <ChevronDown
+                        aria-hidden
+                        className={`h-4 w-4 transition-transform ${openMobileSubmenu === link.label ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                  </div>
+                  {openMobileSubmenu === link.label && (
+                    <div className="ml-3 flex flex-col gap-1 border-l border-white/10 pl-3">
+                      {link.dropdown.map((item) => (
+                        <Link
+                          key={item.label}
+                          href={item.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="rounded px-2 py-2 text-sm text-slate-400 hover:text-brand-teal-hover"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded px-2 py-3 text-base font-medium text-slate-200 transition-colors hover:bg-white/5 hover:text-brand-teal-hover"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
             <Link
               href="/careers"
               onClick={() => setMobileOpen(false)}

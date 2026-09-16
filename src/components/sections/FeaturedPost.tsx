@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Section } from "@/components/layout/Section";
-import { Container } from "@/components/layout/Container";
+import Container from "@/components/ui/Container";
 import { Tag } from "@/components/ui/Tag";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import type { BlogPost } from "@/data/blogs";
@@ -16,7 +16,7 @@ export function FeaturedPost({
   post,
   label = "Featured Intel Transmission",
   tagLabel = "Featured Intel",
-  linkLabel = "Read Transmission",
+  linkLabel = "Read more",
 }: Props) {
   return (
     <Section bg="white">
@@ -27,7 +27,7 @@ export function FeaturedPost({
 
         <div className="grid overflow-hidden rounded-xl border border-slate-200 lg:grid-cols-2">
           {/* Picture — mint block until a real image is added */}
-          <div className="relative aspect-16/10 w-full bg-[#E6F6F0] lg:aspect-auto lg:min-h-[420px]">
+          <div className="relative aspect-16/10 w-full bg-brand-teal/10 lg:aspect-auto lg:min-h-[420px]">
             {post.image && (
               <Image
                 src={post.image}
@@ -42,7 +42,7 @@ export function FeaturedPost({
           {/* Text */}
           <div className="flex flex-col p-6 sm:p-8 lg:p-10">
             <div className="flex flex-wrap items-center gap-3">
-              <span className="rounded-sm bg-emerald-600 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-white">
+              <span className="rounded-sm bg-brand-teal-dark px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-white">
                 {tagLabel}
               </span>
               <span className="text-[10px] uppercase tracking-[0.08em] text-slate-500">

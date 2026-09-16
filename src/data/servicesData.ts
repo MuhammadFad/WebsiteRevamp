@@ -411,24 +411,24 @@ export const uiUxDesignServiceData: ServiceDetailData = {
       {
         id: 'retail-cpg',
         title: 'Retail & CPG',
-        imageSrc: '/images/services/industry-card (1).png',
-        fallbackSrc: '/images/services/industry-card (1).png',
+        imageSrc: '/images/services/industry-card-1.png',
+        fallbackSrc: '/images/services/industry-card-1.png',
         description:
           'Supply chain forecasting, personalized product recommendation models, and conversational search.',
       },
       {
         id: 'oil-gas-energy',
         title: 'Oil, Gas & Energy',
-        imageSrc: '/images/services/industry-card (2).png',
-        fallbackSrc: '/images/services/industry-card (2).png',
+        imageSrc: '/images/services/industry-card-2.png',
+        fallbackSrc: '/images/services/industry-card-2.png',
         description:
           'Preventive maintenance modeling, seismic data analytics, and workflow automation.',
       },
       {
         id: 'banking-finance',
         title: 'Banking & Finance',
-        imageSrc: '/images/services/industry-card (3).png',
-        fallbackSrc: '/images/services/industry-card (3).png',
+        imageSrc: '/images/services/industry-card-3.png',
+        fallbackSrc: '/images/services/industry-card-3.png',
         description:
           'Automated audit workflows, predictive risk compliance modeling, and real-time fraud detection.',
       },
@@ -768,24 +768,24 @@ export const digitalTransformationServiceData: ServiceDetailData = {
       {
         id: 'retail-cpg',
         title: 'Retail & CPG',
-        imageSrc: '/images/services/industry-card (1).png',
-        fallbackSrc: '/images/services/industry-card (1).png',
+        imageSrc: '/images/services/industry-card-1.png',
+        fallbackSrc: '/images/services/industry-card-1.png',
         description:
           'Supply chain forecasting, personalized product recommendation models, and conversational search.',
       },
       {
         id: 'oil-gas-energy',
         title: 'Oil, Gas & Energy',
-        imageSrc: '/images/services/industry-card (2).png',
-        fallbackSrc: '/images/services/industry-card (2).png',
+        imageSrc: '/images/services/industry-card-2.png',
+        fallbackSrc: '/images/services/industry-card-2.png',
         description:
           'Preventive maintenance modeling, seismic data analytics, and workflow automation.',
       },
       {
         id: 'banking-finance',
         title: 'Banking & Finance',
-        imageSrc: '/images/services/industry-card (3).png',
-        fallbackSrc: '/images/services/industry-card (3).png',
+        imageSrc: '/images/services/industry-card-3.png',
+        fallbackSrc: '/images/services/industry-card-3.png',
         description:
           'Automated audit workflows, predictive risk compliance modeling, and real-time fraud detection.',
       },
@@ -1125,24 +1125,24 @@ export const softwareDevelopmentServiceData: ServiceDetailData = {
       {
         id: 'retail-cpg',
         title: 'Retail & CPG',
-        imageSrc: '/images/services/industry-card (1).png',
-        fallbackSrc: '/images/services/industry-card (1).png',
+        imageSrc: '/images/services/industry-card-1.png',
+        fallbackSrc: '/images/services/industry-card-1.png',
         description:
           'Supply chain forecasting, personalized product recommendation models, and conversational search.',
       },
       {
         id: 'oil-gas-energy',
         title: 'Oil, Gas & Energy',
-        imageSrc: '/images/services/industry-card (2).png',
-        fallbackSrc: '/images/services/industry-card (2).png',
+        imageSrc: '/images/services/industry-card-2.png',
+        fallbackSrc: '/images/services/industry-card-2.png',
         description:
           'Preventive maintenance modeling, seismic data analytics, and workflow automation.',
       },
       {
         id: 'banking-finance',
         title: 'Banking & Finance',
-        imageSrc: '/images/services/industry-card (3).png',
-        fallbackSrc: '/images/services/industry-card (3).png',
+        imageSrc: '/images/services/industry-card-3.png',
+        fallbackSrc: '/images/services/industry-card-3.png',
         description:
           'Automated audit workflows, predictive risk compliance modeling, and real-time fraud detection.',
       },
@@ -1477,24 +1477,24 @@ export const cloudSolutionsServiceData: ServiceDetailData = {
         title: 'Retail & CPG',
         description:
           'Supply chain forecasting, personalized product recommendation models, and conversational search.',
-        imageSrc: '/images/services/industry-card (1).png',
-        fallbackSrc: '/images/services/industry-card (1).png',
+        imageSrc: '/images/services/industry-card-1.png',
+        fallbackSrc: '/images/services/industry-card-1.png',
       },
       {
         id: 'cloud-ind-3',
         title: 'Oil, Gas & Energy',
         description:
           'Preventive maintenance modeling, seismic data analytics, and workflow automation.',
-        imageSrc: '/images/services/industry-card (2).png',
-        fallbackSrc: '/images/services/industry-card (2).png',
+        imageSrc: '/images/services/industry-card-2.png',
+        fallbackSrc: '/images/services/industry-card-2.png',
       },
       {
         id: 'cloud-ind-4',
         title: 'Banking & Finance',
         description:
           'Automated audit workflows, predictive risk compliance modeling, and real-time fraud detection.',
-        imageSrc: '/images/services/industry-card (3).png',
-        fallbackSrc: '/images/services/industry-card (3).png',
+        imageSrc: '/images/services/industry-card-3.png',
+        fallbackSrc: '/images/services/industry-card-3.png',
       },
     ],
   },

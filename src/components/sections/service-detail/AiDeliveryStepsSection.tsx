@@ -26,7 +26,7 @@ export const AiDeliveryStepsSection: React.FC<AiDeliveryStepsSectionProps> = ({
   const activeWidthPercent = (activeStepIndex / 3) * 75;
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#0B1B2B] py-20 lg:py-[100px] px-6 sm:px-8 lg:px-12 text-white">
+    <section className="relative w-full overflow-hidden bg-brand-navy py-20 lg:py-[100px] px-6 sm:px-8 lg:px-12 text-white">
       <div className="w-full max-w-[1440px] 2xl:max-w-[1600px] mx-auto">
         {/* Section Header with smooth scroll reveal */}
         <motion.div
@@ -36,13 +36,13 @@ export const AiDeliveryStepsSection: React.FC<AiDeliveryStepsSectionProps> = ({
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="mb-14 lg:mb-16 max-w-[800px]"
         >
-          <span className="font-['Poppins',sans-serif] font-semibold text-[14px] uppercase tracking-wider text-[#14B8A6] block mb-3">
+          <span className="font-semibold text-[14px] uppercase tracking-wider text-brand-teal-hover block mb-3">
             {eyebrow}
           </span>
-          <h2 className="font-['Poppins',sans-serif] font-semibold text-3xl sm:text-[40px] leading-tight sm:leading-[52px] text-[#FFFFFF] mb-4">
+          <h2 className="font-semibold text-3xl sm:text-[40px] leading-tight sm:leading-[52px] text-white mb-4">
             {title}
           </h2>
-          <p className="font-['Inter',sans-serif] text-[15px] sm:text-[16px] leading-[26px] text-[#94A3B8]">
+          <p className="text-[15px] sm:text-[16px] leading-[26px] text-slate-400">
             {subtitle}
           </p>
         </motion.div>
@@ -57,7 +57,7 @@ export const AiDeliveryStepsSection: React.FC<AiDeliveryStepsSectionProps> = ({
             initial={false}
             animate={{ width: `${activeWidthPercent}%` }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
-            className="absolute top-1/2 -translate-y-1/2 left-[12.5%] h-[2.5px] bg-[#14B8A6] shadow-[0_0_10px_#14B8A6] z-10"
+            className="absolute top-1/2 -translate-y-1/2 left-[12.5%] h-[2.5px] bg-brand-teal-fill shadow-[0_0_10px_var(--color-brand-teal-hover)] z-10"
           />
 
           {/* Exactly 4 Node Dots directly above each of the 4 cards */}
@@ -72,13 +72,16 @@ export const AiDeliveryStepsSection: React.FC<AiDeliveryStepsSectionProps> = ({
                   className="absolute -translate-x-1/2 flex items-center justify-center"
                 >
                   <motion.div
+                    // framer-motion's animate prop needs literal, interpolatable color values —
+                    // not CSS vars — so these stay hex; #14B8A6/#1E293B are the exact
+                    // brand-teal-hover / slate-800 token values.
                     animate={{
                       scale: isCurrent ? 1.3 : isPastOrActive ? 1.15 : 1,
                       backgroundColor: isPastOrActive ? '#14B8A6' : '#1E293B',
                       borderColor: isPastOrActive ? '#14B8A6' : 'rgba(255, 255, 255, 0.3)',
                     }}
                     transition={{ duration: 0.3 }}
-                    className="w-3.5 h-3.5 rounded-full border-2 border-[#14B8A6] shadow-sm flex items-center justify-center"
+                    className="w-3.5 h-3.5 rounded-full border-2 border-brand-teal-hover shadow-sm flex items-center justify-center"
                   />
                 </div>
               );
@@ -99,26 +102,26 @@ export const AiDeliveryStepsSection: React.FC<AiDeliveryStepsSectionProps> = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
-                className={`w-full min-w-0 h-full min-h-[285px] bg-[#0C1E2F] rounded-[16px] p-6 sm:p-7 xl:p-8 flex flex-col justify-between transition-all duration-300 cursor-pointer border ${
+                className={`w-full min-w-0 h-full min-h-[285px] bg-brand-navy rounded-[16px] p-6 sm:p-7 xl:p-8 flex flex-col justify-between transition-all duration-300 cursor-pointer border ${
                   isActive
-                    ? 'border-[#14B8A6]/80 shadow-[0_0_24px_rgba(20,184,166,0.18)] -translate-y-1'
+                    ? 'border-brand-teal-hover/80 shadow-[0_0_24px_rgba(20,184,166,0.18)] -translate-y-1'
                     : 'border-white/10 hover:border-white/25 hover:-translate-y-1'
                 }`}
               >
                 <div>
-                  {/* 01, 02, 03, 04 in Teal #14B8A6 */}
-                  <span className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-[28px] text-[#14B8A6] block mb-6">
+                  {/* 01, 02, 03, 04 in Teal var(--color-brand-teal-hover) */}
+                  <span className="font-jakarta font-extrabold text-[28px] text-brand-teal-hover block mb-6">
                     {step.stepNumber}
                   </span>
 
                   {/* Step Title */}
-                  <h3 className="font-['Poppins',sans-serif] font-semibold text-[20px] leading-[28px] text-white mb-3">
+                  <h3 className="font-semibold text-[20px] leading-[28px] text-white mb-3">
                     {step.title}
                   </h3>
                 </div>
 
                 {/* Description */}
-                <p className="font-['Inter',sans-serif] font-normal text-[14px] leading-[22px] text-[#94A3B8] mt-auto">
+                <p className="font-normal text-[14px] leading-[22px] text-slate-400 mt-auto">
                   {step.description}
                 </p>
               </motion.div>

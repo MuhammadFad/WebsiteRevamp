@@ -115,12 +115,19 @@ export default function BlogCard({
     );
   }
 
+  // Shape 3 — vertical card, image on top. Reverted the image-corner badge from the design
+  // review pass. Per the fresh blog Figma export: no shadow by default, 4px radius (sharper
+  // than the site's usual rounded-xl content cards — an intentional, source-confirmed
+  // exception for this card specifically, not an inconsistency to "fix"), "Read More" always
+  // visible in normal flow. HANDOFF-AMBIGUOUS: that export has no hover-state data (static
+  // export can't capture interaction), so the hover treatment (shadow + slight lift) is a
+  // reasonable-call per the user's own description of the prior behavior, not read off Figma.
   return (
     <Link
       href={href}
-      className={`group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition duration-300 hover:border-brand-teal/30 hover:shadow-[0_18px_40px_-20px_rgba(11,18,33,0.35)] ${focusRing} ${className}`}
+      className={`group flex h-full flex-col overflow-hidden rounded border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-20px_rgba(11,18,33,0.35)] ${focusRing} ${className}`}
     >
-      <div className="relative aspect-16/10 w-full bg-brand-teal/10">
+      <div className="relative aspect-16/10 w-full shrink-0 bg-brand-teal/10">
         {image && (
           <Image
             src={image}
@@ -136,12 +143,12 @@ export default function BlogCard({
         {(tag || date) && (
           <div className="mb-3 flex flex-wrap items-center gap-2">
             {tag && (
-              <span className="rounded-sm bg-[#16A97F] px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-white">
+              <span className="rounded-sm bg-brand-teal-fill px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-white">
                 {tag}
               </span>
             )}
             {date && (
-              <span className="text-[10px] uppercase tracking-[0.08em] text-[#8695A4]">
+              <span className="text-[10px] uppercase tracking-[0.08em] text-slate-500">
                 {date}
               </span>
             )}
@@ -165,31 +172,31 @@ export default function BlogCard({
           </div>
         )}
 
-        {author && (
-          <div className="mt-4 flex items-center gap-2">
-            {author.avatar ? (
-              <Image
-                src={author.avatar}
-                alt={author.name}
-                width={24}
-                height={24}
-                className="h-6 w-6 rounded-full object-cover"
-              />
-            ) : (
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#E6F6F0] text-[9px] font-semibold text-[#16A97F]">
-                {author.name[0]}
-              </span>
-            )}
-            <span className="text-[11px] font-medium text-[#0B1A2B]">
-              {author.name}
-            </span>
-          </div>
-        )}
+        <div className="mt-auto flex flex-col gap-3 pt-4">
+          {author && (
+            <div className="flex items-center gap-2">
+              {author.avatar ? (
+                <Image
+                  src={author.avatar}
+                  alt=""
+                  width={24}
+                  height={24}
+                  className="h-6 w-6 rounded-full object-cover"
+                />
+              ) : (
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-teal/10 text-[9px] font-semibold text-brand-teal-dark">
+                  {author.name[0]}
+                </span>
+              )}
+              <span className="text-[11px] font-medium text-slate-900">{author.name}</span>
+            </div>
+          )}
 
-        <span className="mt-auto inline-flex items-center gap-2 pt-4 text-xs font-semibold text-[#16A97F]">
-          {linkLabel}
-          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-        </span>
+          <span className="inline-flex items-center gap-2 text-xs font-semibold text-brand-teal-dark">
+            {linkLabel}
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </span>
+        </div>
       </div>
     </Link>
   );

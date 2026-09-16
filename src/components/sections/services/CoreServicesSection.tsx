@@ -9,13 +9,13 @@ const ServiceIcon: React.FC<{ type: ServiceItem['iconType'] }> = ({ type }) => {
   switch (type) {
     case 'code':
       return (
-        <svg className="w-5 h-5 text-[#14B8A6]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
         </svg>
       );
     case 'design':
       return (
-        <svg className="w-5 h-5 text-[#14B8A6]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -26,7 +26,7 @@ const ServiceIcon: React.FC<{ type: ServiceItem['iconType'] }> = ({ type }) => {
       );
     case 'ai':
       return (
-        <svg className="w-5 h-5 text-[#14B8A6]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -37,7 +37,7 @@ const ServiceIcon: React.FC<{ type: ServiceItem['iconType'] }> = ({ type }) => {
       );
     case 'transform':
       return (
-        <svg className="w-5 h-5 text-[#14B8A6]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -48,7 +48,7 @@ const ServiceIcon: React.FC<{ type: ServiceItem['iconType'] }> = ({ type }) => {
       );
     case 'cloud':
       return (
-        <svg className="w-5 h-5 text-[#14B8A6]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -67,7 +67,7 @@ export const CoreServicesSection: React.FC = () => {
   const bottomRow = coreServicesData.slice(3, 5);
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#FFFFFF] py-20 lg:py-[100px] px-6 sm:px-8 lg:px-12">
+    <section className="relative w-full overflow-hidden bg-white py-20 lg:py-[100px] px-6 sm:px-8 lg:px-12">
       <div className="w-full max-w-[1440px] 2xl:max-w-[1600px] mx-auto">
         {/* Header with smooth scroll reveal */}
         <motion.div
@@ -77,10 +77,10 @@ export const CoreServicesSection: React.FC = () => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-16"
         >
-          <span className="font-['Poppins',sans-serif] font-bold text-[14px] text-[#14B8A6] tracking-widest uppercase block mb-2">
+          <span className="font-bold text-[14px] text-brand-teal-hover tracking-widest uppercase block mb-2">
             DISCOVER MORE
           </span>
-          <h2 className="font-['Poppins',sans-serif] font-semibold text-[32px] sm:text-[40px] text-[#0F172A] tracking-tight">
+          <h2 className="font-semibold text-[32px] sm:text-[40px] text-brand-card tracking-tight">
             OUR CORE SERVICES
           </h2>
         </motion.div>
@@ -94,29 +94,31 @@ export const CoreServicesSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="w-full min-w-0 max-w-[384px] min-h-[281px] bg-white border border-[#E4E7EC] rounded-[12px] p-8 flex flex-col justify-between shadow-[0_4px_16px_rgba(15,35,42,0.06)] hover:shadow-xl hover:border-[#14B8A6]/40 hover:-translate-y-1 transition-all duration-300 group"
+              className="w-full min-w-0 max-w-[384px] min-h-[281px] bg-white border border-slate-200 rounded-[12px] p-8 flex flex-col justify-between shadow-[0_4px_16px_rgba(15,35,42,0.06)] hover:shadow-xl hover:border-brand-teal-hover/40 hover:-translate-y-1 transition-all duration-300 group"
             >
               <div>
-                {/* 44x44px teal tint icon box */}
-                <div className="w-[44px] h-[44px] rounded-lg bg-[#F0FDFA] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                {/* 44x44px icon box — bg-brand-teal-fill (not bg-brand-teal) so the icon reads
+                    against it; white on brand-teal alone sat under the AA threshold too, same
+                    fix as globals.css's button-fill token. */}
+                <div className="w-[44px] h-[44px] rounded-lg bg-brand-teal-fill flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <ServiceIcon type={service.iconType} />
                 </div>
 
                 {/* Title (Poppins 600, 20px) */}
-                <h3 className="font-['Poppins',sans-serif] font-semibold text-[20px] text-[#0F172A] mb-3 group-hover:text-[#14B8A6] transition-colors">
+                <h3 className="font-semibold text-[20px] text-brand-card mb-3 group-hover:text-brand-teal-hover transition-colors">
                   {service.title}
                 </h3>
 
-                {/* Description (14px, #475467) */}
-                <p className="font-['Inter',sans-serif] text-[14px] leading-[22px] text-[#475467]">
+                {/* Description (14px, slate-600) */}
+                <p className="text-[14px] leading-[22px] text-slate-600">
                   {service.description}
                 </p>
               </div>
 
-              {/* Footer link Learn more → (#14B8A6, Inter 600, 14px) pointing to /services/[slug] */}
+              {/* Footer link Learn more → (var(--color-brand-teal-hover), Inter 600, 14px) pointing to /services/[slug] */}
               <Link
                 href={`/services/${service.slug}`}
-                className="inline-flex items-center gap-1.5 font-['Inter',sans-serif] font-semibold text-[14px] text-[#14B8A6] hover:text-[#0D938C] transition-colors mt-6 pt-2"
+                className="inline-flex items-center gap-1.5 font-semibold text-[14px] text-brand-teal-hover hover:text-brand-teal transition-colors mt-6 pt-2"
               >
                 <span>Learn more</span>
                 <span className="text-base group-hover:translate-x-1 transition-transform">→</span>
@@ -134,29 +136,29 @@ export const CoreServicesSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-              className="w-full min-w-0 max-w-[384px] min-h-[281px] bg-white border border-[#E4E7EC] rounded-[12px] p-8 flex flex-col justify-between shadow-[0_4px_16px_rgba(15,35,42,0.06)] hover:shadow-xl hover:border-[#14B8A6]/40 hover:-translate-y-1 transition-all duration-300 group"
+              className="w-full min-w-0 max-w-[384px] min-h-[281px] bg-white border border-slate-200 rounded-[12px] p-8 flex flex-col justify-between shadow-[0_4px_16px_rgba(15,35,42,0.06)] hover:shadow-xl hover:border-brand-teal-hover/40 hover:-translate-y-1 transition-all duration-300 group"
             >
               <div>
                 {/* 44x44px teal tint icon box */}
-                <div className="w-[44px] h-[44px] rounded-lg bg-[#F0FDFA] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-[44px] h-[44px] rounded-lg bg-brand-teal-fill flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <ServiceIcon type={service.iconType} />
                 </div>
 
                 {/* Title (Poppins 600, 20px) */}
-                <h3 className="font-['Poppins',sans-serif] font-semibold text-[20px] text-[#0F172A] mb-3 group-hover:text-[#14B8A6] transition-colors">
+                <h3 className="font-semibold text-[20px] text-brand-card mb-3 group-hover:text-brand-teal-hover transition-colors">
                   {service.title}
                 </h3>
 
-                {/* Description (14px, #475467) */}
-                <p className="font-['Inter',sans-serif] text-[14px] leading-[22px] text-[#475467]">
+                {/* Description (14px, slate-600) */}
+                <p className="text-[14px] leading-[22px] text-slate-600">
                   {service.description}
                 </p>
               </div>
 
-              {/* Footer link Learn more → (#14B8A6, Inter 600, 14px) pointing to /services/[slug] */}
+              {/* Footer link Learn more → (var(--color-brand-teal-hover), Inter 600, 14px) pointing to /services/[slug] */}
               <Link
                 href={`/services/${service.slug}`}
-                className="inline-flex items-center gap-1.5 font-['Inter',sans-serif] font-semibold text-[14px] text-[#14B8A6] hover:text-[#0D938C] transition-colors mt-6 pt-2"
+                className="inline-flex items-center gap-1.5 font-semibold text-[14px] text-brand-teal-hover hover:text-brand-teal transition-colors mt-6 pt-2"
               >
                 <span>Learn more</span>
                 <span className="text-base group-hover:translate-x-1 transition-transform">→</span>

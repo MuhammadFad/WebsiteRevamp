@@ -18,7 +18,7 @@ export const ArrowLink: React.FC<ArrowLinkProps> = ({
     <Link
       href={href}
       className={cn(
-        "group inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 hover:text-emerald-700 transition-colors",
+        "group inline-flex items-center gap-1.5 text-sm font-semibold text-brand-teal-dark hover:text-brand-teal-dark transition-colors",
         className
       )}
       {...props}

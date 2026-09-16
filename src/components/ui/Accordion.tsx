@@ -40,13 +40,13 @@ export const Accordion: React.FC<AccordionProps> = ({
           <div key={item.id} className="py-4">
             <button
               onClick={() => toggle(item.id)}
-              className="flex w-full items-center justify-between text-left text-base font-semibold text-slate-900 transition-colors hover:text-emerald-600"
+              className="flex w-full items-center justify-between text-left text-base font-semibold text-slate-900 transition-colors hover:text-brand-teal-dark"
               aria-expanded={isOpen}
             >
               <span>{item.title}</span>
               <span className="ml-4 flex h-6 w-6 shrink-0 items-center justify-center text-slate-500">
                 <svg
-                  className={cn("h-4 w-4 transition-transform duration-200", isOpen && "rotate-180 text-emerald-600")}
+                  className={cn("h-4 w-4 transition-transform duration-200", isOpen && "rotate-180 text-brand-teal-dark")}
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={2}

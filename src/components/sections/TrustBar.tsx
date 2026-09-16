@@ -13,9 +13,9 @@ const LOGOS = [
 
 export default function TrustBar() {
   return (
-    <section className="border-y border-white/10 bg-brand-navy py-10">
+    <section className="border-y border-slate-200 bg-slate-50 py-10">
       <Container>
-        <LogoStrip title="Trusted by Market Leaders" logos={LOGOS} tone="dark" marquee />
+        <LogoStrip title="Trusted by Market Leaders" logos={LOGOS} tone="light" marquee />
       </Container>
     </section>
   );

@@ -10,6 +10,8 @@ export type StatFeatureProps = {
   statValue: string;
   statLabel: string;
   reverse?: boolean;
+  /** Subtle teal/green ambient gradient behind the section — used for Mission/Vision on About. */
+  gradient?: boolean;
 };
 
 export default function StatFeature({
@@ -19,9 +21,17 @@ export default function StatFeature({
   statValue,
   statLabel,
   reverse = false,
+  gradient = false,
 }: StatFeatureProps) {
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="relative overflow-hidden bg-white py-16 md:py-20">
+      {gradient && (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(13,147,140,0.12),transparent_55%),radial-gradient(circle_at_80%_80%,rgba(20,184,166,0.1),transparent_50%)]"
+        />
+      )}
+
       <Container
         className={`grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16 ${
           reverse ? "lg:[&>*:first-child]:order-2" : ""
@@ -32,7 +42,7 @@ export default function StatFeature({
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
             {heading}
           </h2>
-          <p className="max-w-lg text-lg font-light text-slate-500 md:text-xl">{body}</p>
+          <p className="max-w-lg text-lg font-light text-slate-600 md:text-xl">{body}</p>
         </Reveal>
 
         <Reveal delay={0.1}>

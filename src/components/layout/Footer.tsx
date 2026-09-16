@@ -6,13 +6,11 @@ const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
   {
     title: "Services",
     links: [
-      // HANDOFF-AMBIGUOUS: no dedicated /services page was in the provided design
-      // material, so these anchor into the homepage's services section instead of 404ing.
-      { label: "Software Development", href: "/#services" },
-      { label: "UI/UX Design", href: "/#services" },
-      { label: "Artificial Intelligence", href: "/#services" },
-      { label: "Digital Transformation", href: "/#services" },
-      { label: "Cloud Solutions", href: "/#services" },
+      { label: "Software Development", href: "/services/software-development" },
+      { label: "UI/UX Design", href: "/services/ui-ux-design" },
+      { label: "Artificial Intelligence", href: "/services/artificial-intelligence" },
+      { label: "Digital Transformation", href: "/services/digital-transformation" },
+      { label: "Cloud Solutions", href: "/services/cloud-solutions" },
     ],
   },
   {
@@ -29,10 +27,12 @@ const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
   {
     title: "Insights",
     links: [
-      { label: "Case Studies", href: "/#insights" },
-      { label: "Newsroom", href: "/#insights" },
-      { label: "Whitepapers / EBooks", href: "/#insights" },
-      { label: "Blogs", href: "/#insights" },
+      // HANDOFF-AMBIGUOUS: only a single /blog listing exists (no separate Case Studies/
+      // Newsroom/Whitepapers sections) — all point there rather than to non-existent pages.
+      { label: "Case Studies", href: "/blog" },
+      { label: "Newsroom", href: "/blog" },
+      { label: "Whitepapers / EBooks", href: "/blog" },
+      { label: "Blogs", href: "/blog" },
     ],
   },
   {

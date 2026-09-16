@@ -1,19 +1,21 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
-export interface SelectOption {
+export interface FilterSelectOption {
   value: string;
   label: string;
 }
 
-interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+interface FilterSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   label?: string;
-  options: SelectOption[];
+  options: FilterSelectOption[];
   placeholder?: string;
   error?: string;
 }
 
-export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
+/** Plain select for filter bars (e.g. BlogGrid's industry/service filters) — not a form field,
+ * see @/components/ui/form/Select for that. */
+export const FilterSelect = React.forwardRef<HTMLSelectElement, FilterSelectProps>(
   ({ label, options, placeholder = "Select an option", error, className, id, ...props }, ref) => {
     const selectId = id || (label ? label.toLowerCase().replace(/\s+/g, "-") : undefined);
 
@@ -30,7 +32,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             ref={ref}
             defaultValue=""
             className={cn(
-              "w-full appearance-none px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all cursor-pointer pr-10",
+              "w-full appearance-none px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all cursor-pointer pr-10",
               error && "border-red-500 focus:ring-red-500",
               className
             )}
@@ -57,4 +59,4 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   }
 );
 
-Select.displayName = "Select";
+FilterSelect.displayName = "FilterSelect";

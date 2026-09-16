@@ -14,15 +14,15 @@ export const IconBox: React.FC<IconBoxProps> = ({
   ...props
 }) => {
   const sizeStyles = {
-    sm: "w-8 h-8 rounded-lg text-emerald-700",
-    md: "w-12 h-12 rounded-xl text-emerald-700",
-    lg: "w-16 h-16 rounded-2xl text-emerald-700",
+    sm: "w-8 h-8 rounded-lg text-brand-teal-dark",
+    md: "w-12 h-12 rounded-xl text-brand-teal-dark",
+    lg: "w-16 h-16 rounded-2xl text-brand-teal-dark",
   };
 
   return (
     <div
       className={cn(
-        "inline-flex items-center justify-center bg-[#EAFBF1] border border-emerald-100 flex-shrink-0 transition-transform duration-200 hover:scale-105",
+        "inline-flex items-center justify-center bg-brand-icon-tint border border-brand-teal/10 flex-shrink-0 transition-transform duration-200 hover:scale-105",
         sizeStyles[size],
         className
       )}
