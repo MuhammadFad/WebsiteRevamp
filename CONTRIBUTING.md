@@ -98,7 +98,12 @@ suffixes — those need URL-encoding and are indistinguishable from each other a
 
 Priority order matches CLAUDE.md's testing section:
 
-1. **`npm run lint` and `npx tsc --noEmit` and `npm run build`** — must pass, no exceptions.
+1. **`npm run lint` and `npm run build`** — must pass, no exceptions. `next build` runs the full
+   TypeScript check as part of building, so don't run `tsc --noEmit` as a separate gate before a
+   build/dev has run at least once in that environment — Next generates ambient types (like
+   `LayoutProps`) into `.next/types/`, and a fresh checkout without that folder yet fails `tsc`
+   with `Cannot find name 'LayoutProps'` even on entirely correct code. This is exactly what
+   broke PR #7's `lint-and-build` CI job — see `DEVELOPMENT MATERIAL/CI logs/2_lint-and-build.txt`.
 2. **`npm run test:e2e`** (Playwright, `e2e/`) — critical paths: pages load, nav links resolve,
    contact/careers forms submit and show validation/error states, responsive viewport checks,
    axe-core accessibility per page.

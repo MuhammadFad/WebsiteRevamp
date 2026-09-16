@@ -42,9 +42,12 @@ endpoints pending a Sanity CMS integration.
 ## Testing
 
 ```bash
-npm run build          # production build — must pass
+npm run build          # production build — must pass (this runs the full TypeScript check too;
+                        #   don't run `tsc --noEmit` standalone before a build/dev has run at
+                        #   least once — Next generates ambient types like `LayoutProps` into
+                        #   .next/types/, so a fresh checkout fails tsc with "Cannot find name
+                        #   'LayoutProps'" even on correct code)
 npm run lint            # ESLint (Next + Storybook rules)
-npx tsc --noEmit        # typecheck
 npm test                # everything below except E2E (Storybook stories + plain unit tests)
 npm run test:storybook  # component smoke tests + a11y gate (Storybook stories via Vitest)
 npm run test:unit       # plain Vitest unit tests (src/**/*.test.ts) — validation, data helpers

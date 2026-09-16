@@ -22,7 +22,12 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
-      - run: npx tsc --noEmit
+      # `next build` runs its own full TypeScript check internally, so a standalone
+      # `tsc --noEmit` step here would be redundant — and actively wrong before build has run
+      # once: Next.js generates ambient types (e.g. `LayoutProps`) into `.next/types/` as part
+      # of build/dev, so `tsc --noEmit` on a fresh checkout with no `.next` dir yet fails with
+      # "Cannot find name 'LayoutProps'" even though the code is correct. Confirmed by CI run
+      # on PR #7 (see DEVELOPMENT MATERIAL/CI logs/2_lint-and-build.txt) before this fix.
       - run: npm run build
 
   # Priority 3: component smoke tests (Storybook stories via the vitest addon) + Priority 5:
